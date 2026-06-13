@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sri Aura Dental Care - gentle, modern dental care for healthy and confident smiles.">
+  <title>Sri Aura Dental Care</title>
+  <style>
+    :root {
+      --navy: #12324a;
+      --teal: #168c88;
+      --teal-dark: #0d6f6c;
+      --mint: #e9f7f5;
+      --cream: #fbfaf6;
+      --white: #ffffff;
+      --text: #314555;
+      --shadow: 0 18px 50px rgba(18, 50, 74, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      color: var(--text);
+      background: var(--cream);
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid rgba(18, 50, 74, 0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--navy);
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: var(--teal);
+      border-radius: 50% 50% 46% 54%;
+      font-size: 1.35rem;
+      box-shadow: 0 8px 20px rgba(22, 140, 136, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: var(--navy);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 24px;
+      color: var(--white);
+      background: var(--teal);
+      border: 0;
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: 0 10px 24px rgba(22, 140, 136, 0.22);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .button:hover {
+      background: var(--teal-dark);
+      transform: translateY(-2px);
+    }
+
+    .button.secondary {
+      color: var(--navy);
+      background: var(--white);
+      border: 1px solid rgba(18, 50, 74, 0.14);
+      box-shadow: none;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 96px 0 84px;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(22, 140, 136, 0.16), transparent 26%),
+        linear-gradient(135deg, var(--white), var(--mint));
+    }
+
+    .hero::after {
+      position: absolute;
+      right: -110px;
+      bottom: -170px;
+      width: 420px;
+      height: 420px;
+      content: "";
+      border: 70px solid rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--teal-dark);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 720px;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.8rem, 6vw, 5.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-copy p {
+      max-width: 610px;
+      margin: 26px 0 32px;
+      font-size: 1.12rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .smile-card {
+      position: relative;
+      min-height: 390px;
+      display: grid;
+      place-items: center;
+      padding: 42px;
+      color: var(--white);
+      background: var(--navy);
+      border-radius: 42% 58% 42% 58% / 48% 42% 58% 52%;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transform: rotate(2deg);
+    }
+
+    .tooth {
+      font-size: 7rem;
+      line-height: 1;
+      filter: drop-shadow(0 14px 20px rgba(0, 0, 0, 0.18));
+      transform: rotate(-2deg);
+    }
+
+    .smile-card strong {
+      display: block;
+      margin-top: 18px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.55rem;
+      transform: rotate(-2deg);
+    }
+
+    section {
+      padding: 84px 0;
+    }
+
+    .section-heading {
+      max-width: 650px;
+      margin-bottom: 38px;
+    }
+
+    h2 {
+      margin-bottom: 14px;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.15;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      padding: 30px;
+      background: var(--white);
+      border: 1px solid rgba(18, 50, 74, 0.08);
+      border-radius: 22px;
+      box-shadow: 0 12px 34px rgba(18, 50, 74, 0.07);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      color: var(--teal-dark);
+      background: var(--mint);
+      border-radius: 16px;
+      font-size: 1.5rem;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 1.15rem;
+    }
+
+    .about {
+      background: var(--navy);
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .about h2 {
+      color: var(--white);
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+    }
+
+    .feature strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--white);
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 44px;
+      background: var(--mint);
+      border-radius: 28px;
+    }
+
+    .contact-card h2 {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      padding: 26px 0;
+      color: rgba(255, 255, 255, 0.72);
+      background: #0b273b;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 820px) {
+      .nav-links a:not(.button) {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 68px;
+      }
+
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 44px;
+      }
+
+      .smile-card {
+        min-height: 300px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .brand {
+        font-size: 0.9rem;
+      }
+
+      .nav-links .button {
+        min-height: 42px;
+        padding: 0 16px;
+        font-size: 0.84rem;
+      }
+
+      .feature-list {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Sri Aura Dental Care home">
+        <span class="brand-mark" aria-hidden="true">&#10022;</span>
+        <span>SRI AURA DENTAL CARE</span>
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a class="button" href="#contact">Book a Visit</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Gentle care. Confident smiles.</span>
+          <h1>Your smile deserves thoughtful care.</h1>
+          <p>
+            Welcome to Sri Aura Dental Care, where modern dentistry meets a calm,
+            personal approach for every member of your family.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#contact">Book an Appointment</a>
+            <a class="button secondary" href="#services">Explore Services</a>
+          </div>
+        </div>
+        <div class="smile-card" aria-label="Healthy smiles at Sri Aura Dental Care">
+          <div>
+            <div class="tooth" aria-hidden="true">&#129463;</div>
+            <strong>Healthy smiles begin here.</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Our services</span>
+          <h2>Complete dental care under one roof</h2>
+          <p>Comfort-focused treatment for prevention, restoration, and confident smiles.</p>
+        </div>
+        <div class="services">
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">&#10003;</div>
+            <h3>General Dentistry</h3>
+            <p>Routine checkups, professional cleaning, fillings, and preventive care.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">&#10022;</div>
+            <h3>Smile Care</h3>
+            <p>Personalized cosmetic treatments designed to brighten and enhance your smile.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">&#9825;</div>
+            <h3>Family Dentistry</h3>
+            <p>Friendly, patient-centered dental care for children, adults, and seniors.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div>
+          <span class="eyebrow">Why choose us</span>
+          <h2>Care that puts you at ease</h2>
+          <p>
+            We believe good dentistry starts with listening. Every visit is planned
+            around your comfort, needs, and long-term oral health.
+          </p>
+        </div>
+        <div class="feature-list">
+          <div class="feature">
+            <strong>Gentle Approach</strong>
+            <span>Clear guidance and considerate treatment at every step.</span>
+          </div>
+          <div class="feature">
+            <strong>Modern Care</strong>
+            <span>Thoughtful dentistry supported by current techniques.</span>
+          </div>
+          <div class="feature">
+            <strong>Personal Attention</strong>
+            <span>Treatment plans tailored to your individual needs.</span>
+          </div>
+          <div class="feature">
+            <strong>Family Friendly</strong>
+            <span>A welcoming environment for patients of all ages.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <span class="eyebrow">Appointments</span>
+            <h2>Ready for a healthier smile?</h2>
+            <p>Contact Sri Aura Dental Care to schedule your visit.</p>
+          </div>
+          <a class="button" href="mailto:your-email@example.com">Contact the Clinic</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2026 Sri Aura Dental Care. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
