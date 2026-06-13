@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0B4BA8">
-  <meta name="description" content="Sri Aura Dental Care provides convenient home dental care services across Bangalore. Enquire on WhatsApp and book a dentist visit at home.">
-  <title>Home Dental Care in Bangalore | Sri Aura Dental Care</title>
+  <meta name="description" content="Sri Aura Dental Care provides home dental care consultations in Bangalore and Chennai, with other locations available on request. WhatsApp +91 88381 35459.">
+  <title>Home Dental Care in Bangalore &amp; Chennai | Sri Aura Dental Care</title>
   <style>
     :root {
       --blue: #0b4ba8;
@@ -546,6 +546,36 @@
       font-weight: 850;
     }
 
+    .treatment-visual {
+      position: relative;
+      margin-bottom: 34px;
+      overflow: hidden;
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .treatment-visual img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      display: block;
+      object-fit: cover;
+    }
+
+    .treatment-caption {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      left: 14px;
+      padding: 15px 17px;
+      color: var(--white);
+      background: rgba(7, 29, 57, 0.84);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
     .process {
       background: var(--surface);
     }
@@ -642,6 +672,22 @@
       font-weight: 850;
     }
 
+    .doctor-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .doctor-badge {
+      padding: 7px 11px;
+      color: var(--blue-dark);
+      background: var(--blue-soft);
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 850;
+    }
+
     .doctor-copy > p {
       margin-bottom: 16px;
     }
@@ -674,11 +720,6 @@
       border-radius: 9px;
       font-style: normal;
       font-weight: 900;
-    }
-
-    .registration-pending {
-      color: var(--text);
-      font-style: italic;
     }
 
     .doctor-actions {
@@ -1037,6 +1078,10 @@
         grid-template-columns: repeat(3, 1fr);
       }
 
+      .treatment-visual img {
+        aspect-ratio: 2.4 / 1;
+      }
+
       .process-grid {
         grid-template-columns: repeat(4, 1fr);
       }
@@ -1107,7 +1152,10 @@
   </style>
 </head>
 <body>
-  <div class="announcement">Home dental care appointments available across Bangalore</div>
+  <div class="announcement">
+    Home dental care in Bangalore &amp; Chennai | Other locations on request |
+    <a href="tel:+918838135459">Call +91 88381 35459</a>
+  </div>
 
   <header>
     <nav class="container" aria-label="Main navigation">
@@ -1132,11 +1180,12 @@
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="pill"><span class="pill-dot"></span> Home dental care in Bangalore</div>
+          <div class="pill"><span class="pill-dot"></span> Bangalore &amp; Chennai home dental care</div>
           <h1>Healthy Smiles, <span>Right at Your Doorstep</span></h1>
           <p>
             Comfortable, professional dental care brought to your home. Ideal for
             seniors, busy families, children, and anyone who finds clinic visits difficult.
+            Other locations may be supported on request.
           </p>
           <div class="hero-actions">
             <a class="btn btn-whatsapp whatsapp-link" href="#" target="_blank" rel="noopener">
@@ -1151,9 +1200,9 @@
           </div>
         </div>
 
-        <div class="care-route" aria-label="Dental care travelling to your home in Bangalore">
+        <div class="care-route" aria-label="Dental care travelling to your home in Bangalore and Chennai">
           <div class="route-top">
-            <span class="route-label">&#9679; Bangalore doorstep service</span>
+            <span class="route-label">&#9679; Bangalore &amp; Chennai service</span>
           </div>
           <div class="route-visual" aria-hidden="true">
             <div class="route-line"></div>
@@ -1174,7 +1223,7 @@
         <div class="trust-item"><strong>Doorstep Visits</strong><span>Care where you are</span></div>
         <div class="trust-item"><strong>Portable Setup</strong><span>Essential equipment brought along</span></div>
         <div class="trust-item"><strong>Family Focused</strong><span>Support across age groups</span></div>
-        <div class="trust-item"><strong>Bangalore Based</strong><span>Local appointment coordination</span></div>
+        <div class="trust-item"><strong>Two-City Coverage</strong><span>Bangalore &amp; Chennai</span></div>
       </div>
     </div>
 
@@ -1182,11 +1231,22 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Dental care that comes to you</span>
-          <h2>Essential services, delivered with comfort</h2>
+          <h2>Comprehensive care, thoughtfully coordinated</h2>
           <p>
-            Start with an at-home assessment. We will guide you on what can be managed
-            at home and when a clinic visit may be more appropriate.
+            Begin with an at-home assessment or WhatsApp consultation. Dr. Arunadevi
+            will explain what is suitable at home and coordinate clinic-based care when
+            advanced equipment, imaging, or procedures are required.
           </p>
+        </div>
+        <div class="treatment-visual">
+          <img
+            src="assets/home-dental-treatments.jpg"
+            alt="Dental consultation, professional cleaning, and senior dental care at home"
+            width="1536"
+            height="1024"
+            loading="lazy"
+          >
+          <p class="treatment-caption">Consultation, preventive care, and comfortable support for patients across age groups.</p>
         </div>
         <div class="services-grid">
           <article class="service-card">
@@ -1199,36 +1259,57 @@
           <article class="service-card">
             <span class="service-number">02</span>
             <div class="service-icon" aria-hidden="true">&#10022;</div>
-            <h3>Teeth Cleaning</h3>
-            <p>Professional cleaning support planned around your oral health needs and home setting.</p>
+            <h3>Preventive Care &amp; Cleaning</h3>
+            <p>Oral hygiene education, preventive reviews, and professional cleaning where clinically suitable.</p>
             <a class="whatsapp-link" href="#" target="_blank" rel="noopener">Ask about this service &#8594;</a>
           </article>
           <article class="service-card">
             <span class="service-number">03</span>
             <div class="service-icon" aria-hidden="true">&#9786;</div>
-            <h3>Senior Dental Care</h3>
-            <p>Patient, considerate care for older adults who may find travel or clinic access difficult.</p>
+            <h3>Fillings &amp; Restorative Care</h3>
+            <p>Assessment and treatment planning for fillings, damaged teeth, crowns, bridges, and full-mouth rehabilitation.</p>
             <a class="whatsapp-link" href="#" target="_blank" rel="noopener">Ask about this service &#8594;</a>
           </article>
           <article class="service-card">
             <span class="service-number">04</span>
             <div class="service-icon" aria-hidden="true">&#9825;</div>
-            <h3>Children's Dental Check</h3>
-            <p>A familiar home environment can make early dental conversations feel calmer for children.</p>
+            <h3>Root Canal Treatment</h3>
+            <p>Diagnosis and coordination for RCT and re-RCT, with pain management and restorative follow-up.</p>
             <a class="whatsapp-link" href="#" target="_blank" rel="noopener">Ask about this service &#8594;</a>
           </article>
           <article class="service-card">
             <span class="service-number">05</span>
             <div class="service-icon" aria-hidden="true">&#9737;</div>
-            <h3>Denture Support</h3>
-            <p>At-home evaluation for denture-related concerns, comfort, care, and maintenance guidance.</p>
+            <h3>Dentures &amp; Prosthetic Care</h3>
+            <p>Evaluation and support for dentures, crowns, bridges, implant prosthetics, comfort, and maintenance.</p>
             <a class="whatsapp-link" href="#" target="_blank" rel="noopener">Ask about this service &#8594;</a>
           </article>
           <article class="service-card">
             <span class="service-number">06</span>
             <div class="service-icon" aria-hidden="true">&#9889;</div>
-            <h3>Dental Pain Assessment</h3>
-            <p>Timely assessment of dental discomfort with guidance on urgent and appropriate care.</p>
+            <h3>Cosmetic Dentistry</h3>
+            <p>Personalised guidance for smile design and cosmetic procedures based on oral health and treatment goals.</p>
+            <a class="whatsapp-link" href="#" target="_blank" rel="noopener">Ask about this service &#8594;</a>
+          </article>
+          <article class="service-card">
+            <span class="service-number">07</span>
+            <div class="service-icon" aria-hidden="true">&#9889;</div>
+            <h3>Dental Pain Management</h3>
+            <p>Prompt assessment of tooth pain, sensitivity, swelling, and discomfort with clear next-step guidance.</p>
+            <a class="whatsapp-link" href="#" target="_blank" rel="noopener">Ask about this service &#8594;</a>
+          </article>
+          <article class="service-card">
+            <span class="service-number">08</span>
+            <div class="service-icon" aria-hidden="true">&#10010;</div>
+            <h3>Extraction &amp; Minor Surgery</h3>
+            <p>Clinical assessment and clinic coordination for tooth extraction and minor oral surgical procedures.</p>
+            <a class="whatsapp-link" href="#" target="_blank" rel="noopener">Ask about this service &#8594;</a>
+          </article>
+          <article class="service-card">
+            <span class="service-number">09</span>
+            <div class="service-icon" aria-hidden="true">&#9825;</div>
+            <h3>Senior &amp; Family Dentistry</h3>
+            <p>Patient-centred support for seniors, children, busy families, and patients with mobility limitations.</p>
             <a class="whatsapp-link" href="#" target="_blank" rel="noopener">Ask about this service &#8594;</a>
           </article>
         </div>
@@ -1245,7 +1326,7 @@
         <div class="process-grid">
           <article class="step">
             <h3>Share your concern</h3>
-            <p>Message us on WhatsApp with the patient's needs and Bangalore location.</p>
+            <p>Message us with the patient's needs and location in Bangalore, Chennai, or another requested city.</p>
           </article>
           <article class="step">
             <h3>Quick assessment</h3>
@@ -1277,24 +1358,40 @@
         <div class="doctor-copy">
           <span class="eyebrow">Meet your dentist</span>
           <h2>Dr. Arunadevi Boobalan</h2>
-          <span class="doctor-role">Dentist, Sri Aura Dental Care</span>
+          <span class="doctor-role">Clinic Head &amp; Dental Surgeon | BDS | 7+ Years Experience</span>
+          <div class="doctor-badges" aria-label="Professional highlights">
+            <span class="doctor-badge">Restorative Dentistry</span>
+            <span class="doctor-badge">Root Canal Treatment</span>
+            <span class="doctor-badge">Cosmetic Dentistry</span>
+            <span class="doctor-badge">Prosthodontic Care</span>
+          </div>
           <p>
-            Dr. Arunadevi Boobalan is committed to making dental care more approachable
-            by bringing thoughtful, patient-focused support into the comfort of home.
+            Dr. Arunadevi Boobalan is a compassionate dental surgeon with more than
+            seven years of experience in restorative, cosmetic, preventive, and
+            prosthodontic dentistry.
           </p>
           <p>
-            Her approach centres on listening carefully, explaining concerns clearly,
-            and helping individuals and families understand the most appropriate next
-            step for their oral health.
+            As a clinic head and experienced senior dental surgeon, she combines careful
+            diagnosis, clear treatment planning, pain management, and patient counselling.
+            Her goal at Sri Aura Dental Care is to make dependable oral care easier to
+            access while maintaining appropriate clinical and infection-control standards.
           </p>
           <div class="doctor-details">
             <div class="doctor-detail">
               <i aria-hidden="true">&#10022;</i>
-              <span><strong>Focus:</strong> Comfortable, personalised home dental care in Bangalore</span>
+              <span><strong>Education:</strong> Bachelor of Dental Surgery, SRM University (2014-2019)</span>
             </div>
             <div class="doctor-detail">
               <i aria-hidden="true">&#8470;</i>
-              <span><strong>Dental Registration No.:</strong> <span class="registration-pending">Awaiting verified number</span></span>
+              <span><strong>Dental Registration No.:</strong> 30625</span>
+            </div>
+            <div class="doctor-detail">
+              <i aria-hidden="true">&#10010;</i>
+              <span><strong>Certifications:</strong> Dental Lasers hands-on training; Basic Life Support (CPR &amp; AED), American Heart Association</span>
+            </div>
+            <div class="doctor-detail">
+              <i aria-hidden="true">&#9998;</i>
+              <span><strong>Languages:</strong> Tamil and English; conversational Hindi</span>
             </div>
           </div>
           <div class="doctor-actions">
@@ -1362,8 +1459,8 @@
         </div>
         <div class="faq-list">
           <details>
-            <summary>Which areas of Bangalore do you serve?</summary>
-            <p>Availability depends on your location and appointment schedule. Share your area or PIN code on WhatsApp so the team can confirm service coverage.</p>
+            <summary>Which locations do you serve?</summary>
+            <p>Regular appointment coordination is available in Bangalore and Chennai. Other locations may be considered on request, depending on distance, schedule, and the care required. Share your city, area, and PIN code on WhatsApp for confirmation.</p>
           </details>
           <details>
             <summary>Can every dental treatment be done at home?</summary>
@@ -1393,7 +1490,7 @@
           <p>Complete this short form and continue to WhatsApp with your details ready to send.</p>
           <div class="booking-points">
             <span><i class="check" aria-hidden="true">&#10003;</i> Quick WhatsApp enquiry</span>
-            <span><i class="check" aria-hidden="true">&#10003;</i> Bangalore location check</span>
+            <span><i class="check" aria-hidden="true">&#10003;</i> Bangalore &amp; Chennai coverage check</span>
             <span><i class="check" aria-hidden="true">&#10003;</i> Appointment coordination</span>
           </div>
         </div>
@@ -1407,8 +1504,17 @@
             <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+91 00000 00000" required>
           </div>
           <div class="field">
-            <label for="area">Area in Bangalore</label>
-            <input id="area" name="area" type="text" autocomplete="address-level2" placeholder="e.g. Indiranagar" required>
+            <label for="city">City</label>
+            <select id="city" name="city" required>
+              <option value="">Choose your city</option>
+              <option>Bangalore</option>
+              <option>Chennai</option>
+              <option>Other location - on request</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="area">Area / PIN code</label>
+            <input id="area" name="area" type="text" autocomplete="address-level2" placeholder="e.g. Bellandur / 560103" required>
           </div>
           <div class="field">
             <label for="service">Service needed</label>
@@ -1420,6 +1526,10 @@
               <option>Children's dental check</option>
               <option>Denture support</option>
               <option>Dental pain assessment</option>
+              <option>Fillings, crowns or bridges</option>
+              <option>Root canal treatment</option>
+              <option>Cosmetic dentistry</option>
+              <option>Extraction or minor surgery</option>
               <option>Other dental concern</option>
             </select>
           </div>
@@ -1445,13 +1555,18 @@
               <span class="brand-sub" style="color:#79e1da">Healthy smiles, right at your doorstep</span>
             </span>
           </a>
-          <p class="footer-copy">Home dental care enquiries and appointment coordination in Bangalore.</p>
+          <p class="footer-copy">
+            Home dental care enquiries in Bangalore and Chennai, with other locations
+            considered on request. Call or WhatsApp +91 88381 35459.
+          </p>
         </div>
         <div class="footer-links">
           <a href="#services">Services</a>
           <a href="#process">How it works</a>
           <a href="#doctor">Doctor</a>
           <a href="#faq">FAQs</a>
+          <a href="tel:+918838135459">Call Us</a>
+          <a href="mailto:arunaboobalan31@gmail.com">Email</a>
           <a class="whatsapp-link" href="#" target="_blank" rel="noopener">WhatsApp</a>
         </div>
       </div>
@@ -1465,8 +1580,8 @@
   </div>
 
   <script>
-    const whatsappNumber = "";
-    const defaultMessage = "Hello Sri Aura Dental Care, I would like to enquire about a home dental care appointment in Bangalore.";
+    const whatsappNumber = "918838135459";
+    const defaultMessage = "Hello Sri Aura Dental Care, I would like to enquire about a dental care appointment.";
 
     function whatsappUrl(message) {
       const base = whatsappNumber
@@ -1487,6 +1602,7 @@
         "",
         "Patient: " + data.get("name"),
         "Mobile: " + data.get("phone"),
+        "City: " + data.get("city"),
         "Area: " + data.get("area"),
         "Service: " + data.get("service"),
         "Details: " + (data.get("message") || "Not provided")
