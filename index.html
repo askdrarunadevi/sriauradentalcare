@@ -489,6 +489,32 @@
       gap: 15px;
     }
 
+    .pricing-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .pricing-card {
+      padding: 24px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .pricing-card .price {
+      margin: 18px 0 12px;
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--ink);
+    }
+
+    .pricing-card .price del {
+      color: var(--text);
+      margin-right: 12px;
+      font-weight: 700;
+    }
+
     .service-card {
       position: relative;
       min-height: 220px;
@@ -1116,6 +1142,10 @@
         grid-template-columns: repeat(4, 1fr);
       }
 
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .booking-wrap {
         grid-template-columns: 0.8fr 1.2fr;
       }
@@ -1153,7 +1183,7 @@
 </head>
 <body>
   <div class="announcement">
-    Home dental care in Bangalore &amp; Chennai | Other locations on request |
+    Home dental care visits in Bangalore &amp; Chennai | Home visit only | Clinic opening planned
     <a href="tel:+918838135459">Call +91 88381 35459</a>
   </div>
 
@@ -1180,12 +1210,12 @@
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="pill"><span class="pill-dot"></span> Bangalore &amp; Chennai home dental care</div>
-          <h1>Healthy Smiles, <span>Right at Your Doorstep</span></h1>
+          <div class="pill"><span class="pill-dot"></span> 15,000+ patient smiles | 7 years of dental care</div>
+          <h1>Trusted home dental care, <span>right at your doorstep</span></h1>
           <p>
-            Comfortable, professional dental care brought to your home. Ideal for
-            seniors, busy families, children, and anyone who finds clinic visits difficult.
-            Other locations may be supported on request.
+            Behind every confident smile is care, trust, compassion, and expertise.
+            With 7 years of practice and 15,000+ patient smiles, Dr. Arunadevi brings
+            caring, professional dental home visits to Bangalore and Chennai.
           </p>
           <div class="hero-actions">
             <a class="btn btn-whatsapp whatsapp-link" href="#" target="_blank" rel="noopener">
@@ -1194,9 +1224,9 @@
             <a class="btn btn-outline" href="#booking">Request Appointment</a>
           </div>
           <div class="micro-trust" aria-label="Service highlights">
-            <span><i class="check" aria-hidden="true">&#10003;</i> At-home convenience</span>
-            <span><i class="check" aria-hidden="true">&#10003;</i> Hygiene-first care</span>
-            <span><i class="check" aria-hidden="true">&#10003;</i> Personal attention</span>
+            <span><i class="check" aria-hidden="true">&#10003;</i> 15,000+ patient smiles</span>
+            <span><i class="check" aria-hidden="true">&#10003;</i> Home visit convenience</span>
+            <span><i class="check" aria-hidden="true">&#10003;</i> Care with compassion</span>
           </div>
         </div>
 
@@ -1226,6 +1256,34 @@
         <div class="trust-item"><strong>Two-City Coverage</strong><span>Bangalore &amp; Chennai</span></div>
       </div>
     </div>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">A patient-first commitment</span>
+          <h2>Every smile starts with trust and relief</h2>
+          <p>
+            Over the past 7 years, Dr. Arunadevi has helped 15,000+ patients overcome pain,
+            improve oral health, and regain confidence. Every home visit is guided by
+            compassion, clear explanation, and calm, patient-centered care.
+          </p>
+        </div>
+        <div class="promise-grid">
+          <div class="promise-card">
+            <strong>From pain to relief</strong>
+            <span>One of the most satisfying moments is seeing a patient arrive in discomfort and leave with a smile.</span>
+          </div>
+          <div class="promise-card">
+            <strong>Built on trust</strong>
+            <span>Patients are supported with honest advice, attentive treatment planning, and respectful follow-up.</span>
+          </div>
+          <div class="promise-card">
+            <strong>Future clinic in planning</strong>
+            <span>Today’s focus is home visits, while clinic preparation and a broader care platform are already underway.</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="services">
       <div class="container">
@@ -1344,6 +1402,28 @@
       </div>
     </section>
 
+    <section class="pricing">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Clear home visit offers</span>
+          <h2>Transparent pricing for essential care</h2>
+          <p>We keep pricing simple for home dental visits, with a special family offer for 3+ members and clear consultation support.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <strong>Cleaning &amp; Filling offer</strong>
+            <p class="price"><del>₹1500</del> <strong>₹1,199 / person</strong></p>
+            <p>Home visit package pricing for cleaning plus filling support when clinically suitable.</p>
+          </article>
+          <article class="pricing-card">
+            <strong>Family cleaning + consultation</strong>
+            <p class="price"><del>₹1500</del> <strong>₹1,099 / person</strong></p>
+            <p>For 3 or more family members in the same home, a clean, consultative offer priced per person.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="doctor" id="doctor">
       <div class="container doctor-grid">
         <div class="doctor-portrait">
@@ -1358,42 +1438,52 @@
         <div class="doctor-copy">
           <span class="eyebrow">Meet your dentist</span>
           <h2>Dr. Arunadevi Boobalan</h2>
-          <span class="doctor-role">Clinic Head &amp; Dental Surgeon | BDS | 7+ Years Experience</span>
+          <span class="doctor-role">Dental Surgeon | BDS | 7+ Years Experience | 15,000+ Patient Smiles</span>
           <div class="doctor-badges" aria-label="Professional highlights">
+            <span class="doctor-badge">Oral Diagnosis & Treatment Planning</span>
             <span class="doctor-badge">Restorative Dentistry</span>
-            <span class="doctor-badge">Root Canal Treatment</span>
+            <span class="doctor-badge">RCT & Re-RCT</span>
             <span class="doctor-badge">Cosmetic Dentistry</span>
-            <span class="doctor-badge">Prosthodontic Care</span>
+            <span class="doctor-badge">Full Mouth Rehabilitation</span>
+            <span class="doctor-badge">Patient Communication</span>
           </div>
           <p>
-            Dr. Arunadevi Boobalan is a compassionate dental surgeon with more than
-            seven years of experience in restorative, cosmetic, preventive, and
-            prosthodontic dentistry.
+            Compassionate and detail-oriented Dental Surgeon with 7+ years of experience in restorative,
+            cosmetic, and preventive dentistry. Committed to delivering patient-centered care and
+            dependable home visit dental services.
           </p>
           <p>
-            As a clinic head and experienced senior dental surgeon, she combines careful
-            diagnosis, clear treatment planning, pain management, and patient counselling.
-            Her goal at Sri Aura Dental Care is to make dependable oral care easier to
-            access while maintaining appropriate clinical and infection-control standards.
+            She has cared for over 15,000 patients across dental check-ups, preventive treatments,
+            fillings, crowns, root canals, dentures, and cosmetic smile improvements. Her skills include
+            oral hygiene education, pain management, and clinical leadership.
           </p>
           <div class="doctor-details">
             <div class="doctor-detail">
-              <i aria-hidden="true">&#10022;</i>
-              <span><strong>Education:</strong> Bachelor of Dental Surgery, SRM University (2014-2019)</span>
+              <i aria-hidden="true">&#128188;</i>
+              <span><strong>Current role:</strong> Clinic Head at Smile Elements Dental, Bellandur, Bangalore.</span>
             </div>
             <div class="doctor-detail">
-              <i aria-hidden="true">&#8470;</i>
-              <span><strong>Dental Registration No.:</strong> 30625</span>
+              <i aria-hidden="true">&#127979;</i>
+              <span><strong>Prior experience:</strong> Senior Dental Surgeon at Sha Dental Care, Sowcarpet, Chennai; Dental Assistant at The Tusk Multispecialty Clinic.</span>
+            </div>
+            <div class="doctor-detail">
+              <i aria-hidden="true">&#128100;</i>
+              <span><strong>Daily scope:</strong> Leading clinical operations, mentoring staff, managing 10–20 patients per day, and delivering advanced restorative and cosmetic treatments.</span>
             </div>
             <div class="doctor-detail">
               <i aria-hidden="true">&#10010;</i>
-              <span><strong>Certifications:</strong> Dental Lasers hands-on training; Basic Life Support (CPR &amp; AED), American Heart Association</span>
+              <span><strong>Technical expertise:</strong> Fillings, crowns, bridges, RCT, dentures, cosmetic smile enhancements, and full mouth rehabilitation.</span>
             </div>
             <div class="doctor-detail">
-              <i aria-hidden="true">&#9998;</i>
-              <span><strong>Languages:</strong> Tamil and English; conversational Hindi</span>
+              <i aria-hidden="true">&#128161;</i>
+              <span><strong>Patient focus:</strong> Pain management, counselling, preventive education, and high satisfaction through clear treatment planning.</span>
             </div>
           </div>
+          <p>
+            Today she focuses on home visit dental care while preparing a future clinic.
+            This website is designed to present her profile and, soon, a before/after
+            case gallery for real patient results.
+          </p>
           <div class="doctor-actions">
             <a class="btn btn-whatsapp whatsapp-link" href="#" target="_blank" rel="noopener">Book with Dr. Arunadevi</a>
             <a class="btn btn-outline" href="https://in.linkedin.com/in/dr-arunadevi-boobalan" target="_blank" rel="noopener noreferrer">View LinkedIn Profile</a>
@@ -1491,7 +1581,7 @@
           <div class="booking-points">
             <span><i class="check" aria-hidden="true">&#10003;</i> Quick WhatsApp enquiry</span>
             <span><i class="check" aria-hidden="true">&#10003;</i> Bangalore &amp; Chennai coverage check</span>
-            <span><i class="check" aria-hidden="true">&#10003;</i> Appointment coordination</span>
+            <span><i class="check" aria-hidden="true">&#10003;</i> Select a preferred home visit slot</span>
           </div>
         </div>
         <form id="booking-form">
@@ -1533,9 +1623,20 @@
               <option>Other dental concern</option>
             </select>
           </div>
+          <div class="field">
+            <label for="slot">Preferred visit slot</label>
+            <select id="slot" name="slot" required>
+              <option value="">Choose an appointment slot</option>
+              <option>Sunday 7:00 AM - 9:00 PM</option>
+              <option>Weekdays 7:00 AM - 9:00 AM</option>
+              <option>Weekdays 7:00 PM - 9:00 PM</option>
+              <option>Custom slot (call or WhatsApp to confirm)</option>
+            </select>
+          </div>
           <div class="field field-full">
             <label for="message">Tell us a little more</label>
             <textarea id="message" name="message" placeholder="Describe the dental concern or preferred appointment time"></textarea>
+            <p class="form-note">Sunday visits are only available between 7AM and 9PM. Monday–Saturday slots are morning 7AM–9AM or evening 7PM–9PM.</p>
           </div>
           <button class="btn btn-whatsapp" type="submit">Continue on WhatsApp &#8594;</button>
           <p class="form-note">Submitting this form opens WhatsApp. Your message is sent only after you confirm it there.</p>
@@ -1566,7 +1667,7 @@
           <a href="#doctor">Doctor</a>
           <a href="#faq">FAQs</a>
           <a href="tel:+918838135459">Call Us</a>
-          <a href="mailto:arunaboobalan31@gmail.com">Email</a>
+          <a href="mailto:askdrarunadevi@gmail.com">Email</a>
           <a class="whatsapp-link" href="#" target="_blank" rel="noopener">WhatsApp</a>
         </div>
       </div>
@@ -1605,6 +1706,7 @@
         "City: " + data.get("city"),
         "Area: " + data.get("area"),
         "Service: " + data.get("service"),
+        "Preferred slot: " + data.get("slot"),
         "Details: " + (data.get("message") || "Not provided")
       ].join("\n");
 
