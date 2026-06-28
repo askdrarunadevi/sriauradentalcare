@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Aura Dental Care - Report Generator</title>
+    <!-- Tailwind CSS for modern layout styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- html2pdf.js library for rendering pure HTML to PDF in-browser -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Hanken Grotesk', sans-serif; }
+        .wizard-step { display: none; }
+        .wizard-step.active { display: block; }
+        /* Core print optimization styling for crisp PDF generation */
+        .pdf-page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            margin: 0 auto;
+            background: #ffffff;
+            box-sizing: border-box;
+            page-break-after: always;
+            position: relative;
+        }
+        .pdf-page:last-child { page-break-after: avoid; }
+    </style>
+</head>
+<body class="bg-slate-100 min-h-screen pb-12">
+
+    <!-- ========================================== -->
+    <!-- WIZARD INPUT INTERFACE (Browser Only)     -->
+    <!-- ========================================== -->
+    <div id="input-container" class="max-w-2xl mx-auto mt-10 p-8 bg-white rounded-xl shadow-md border border-slate-200">
+        <div class="border-b border-slate-200 pb-4 mb-6">
+            <h1 class="text-2xl font-bold text-slate-800">Sri Aura Dental Care</h1>
+            <p class="text-sm text-slate-500">Doorstep Assessment Report Pipeline</p>
+        </div>
+
+        <form id="reportForm" onsubmit="event.preventDefault();">
+            <!-- Step 1: Patient Demographics -->
+            <div class="wizard-step active" data-step="1">
+                <h2 class="text-lg font-semibold text-slate-700 mb-4">Step 1: Patient Demographics</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-600">Patient Name</label>
+                        <input type="text" id="input_name" class="mt-1 w-full p-2 border border-slate-300 rounded-md focus:ring focus:ring-teal-200" placeholder="John Doe">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-600">Age</label>
+                            <input type="number" id="input_age" class="mt-1 w-full p-2 border border-slate-300 rounded-md focus:ring focus:ring-teal-200" placeholder="30">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-600">Gender</label>
+                            <select id="input_gender" class="mt-1 w-full p-2 border border-slate-300 rounded-md focus:ring focus:ring-teal-200">
+                                <option value="MALE">Male</option>
+                                <option value="FEMALE">Female</option>
+                                <option value="OTHER">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Case Context Details -->
+            <div class="wizard-step" data-step="2">
+                <h2 class="text-lg font-semibold text-slate-700 mb-4">Step 2: Case Context Details</h2>
+                <div class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-600">Dentition</label>
+                            <input type="text" id="input_dentition" class="mt-1 w-full p-2 border border-slate-300 rounded-md" value="Permanent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-600">Medical History</label>
+                            <input type="text" id="input_med_history" class="mt-1 w-full p-2 border border-slate-300 rounded-md" value="None">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-600">Dental History</label>
+                            <input type="text" id="input_dental_history" class="mt-1 w-full p-2 border border-slate-300 rounded-md" value="Teeth Cleaning">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-600">Habits</label>
+                            <input type="text" id="input_habits" class="mt-1 w-full p-2 border border-slate-300 rounded-md" placeholder="e.g., Tea / Coffee">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-600">Issues Reported by Patient</label>
+                        <input type="text" id="input_issues" class="mt-1 w-full p-2 border border-slate-300 rounded-md" placeholder="e.g., Bleeding Gums, Sensitivity">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Diagnostics & Score Evaluation -->
+            <div class="wizard-step" data-step="3">
+                <h2 class="text-lg font-semibold text-slate-700 mb-4">Step 3: Diagnostics & Score Evaluation</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-600">Oral Health Score (1 to 10)</label>
+                        <input type="number" id="input_score" min="1" max="10" class="mt-1 w-full p-2 border border-slate-300 rounded-md" value="7">
+                    </div>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-600">Treatment Needed</label>
+                            <input type="number" id="input_tier1" class="mt-1 w-full p-2 border border-slate-300 rounded-md" value="0">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-600">Clinical Exam Needed</label>
+                            <input type="number" id="input_tier2" class="mt-1 w-full p-2 border border-slate-300 rounded-md" value="0">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-600">At-Home Care Needed</label>
+                            <input type="number" id="input_tier3" class="mt-1 w-full p-2 border border-slate-300 rounded-md" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Photo Attachments -->
+            <div class="wizard-step" data-step="4">
+                <h2 class="text-lg font-semibold text-slate-700 mb-4">Step 4: High-Resolution Clinical Photos</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-600">Upper Jaw Photo</label>
+                        <input type="file" id="img_upper" accept="image/*" class="mt-1 w-full p-1 text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-600">Lower Jaw Photo</label>
+                        <input type="file" id="img_lower" accept="image/*" class="mt-1 w-full p-1 text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-600">Front Profile Photo</label>
+                        <input type="file" id="img_profile" accept="image/*" class="mt-1 w-full p-1 text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-teal-50 file:text-teal-700 hover:file:bg-teal-100">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: Recommendations -->
+            <div class="wizard-step" data-step="5">
+                <h2 class="text-lg font-semibold text-slate-700 mb-4">Step 5: Dentist's Recommendations</h2>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-600">Clinical Advice (One point per line)</label>
+                        <textarea id="input_recommendations" rows="5" class="mt-1 w-full p-2 border border-slate-300 rounded-md" placeholder="Professional teeth cleaning needed.&#10;Brushing twice a day with soft bristles recommended."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Bar Component -->
+            <div class="flex justify-between items-center mt-8 pt-4 border-t border-slate-200">
+                <button type="button" id="prevBtn" onclick="moveStep(-1)" class="px-4 py-2 bg-slate-200 text-slate-600 rounded-md font-medium hover:bg-slate-300 disabled:opacity-50 disabled:cursor-not-allowed" disabled>Back</button>
+                <button type="button" id="nextBtn" onclick="moveStep(1)" class="px-4 py-2 bg-teal-600 text-white rounded-md font-medium hover:bg-teal-700">Next</button>
+                <button type="button" id="submitBtn" onclick="compileAndDownloadPDF()" class="hidden px-6 py-2 bg-emerald-600 text-white rounded-md font-medium hover:bg-emerald-700 shadow">Generate PDF Report</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PDF TEMPLATE CONTAINER (Hidden from UI)    -->
+    <!-- ========================================== -->
+    <div class="hidden">
+        <div id="pdf-render-pipeline" class="text-slate-800">
+            
+            <!-- PAGE 1: REBRANDED EXECUTIVE SUMMARY -->
+            <div class="pdf-page">
+                <!-- Rebranded Banner Header Component -->
+                <div class="flex justify-between items-center bg-teal-800 text-white p-6 rounded-lg mb-8">
+                    <div>
+                        <h1 class="text-2xl font-bold tracking-tight">SRI AURA DENTAL CARE</h1>
+                        <p class="text-xs opacity-90 mt-1">Professional Home Dental Care | Bangalore & Chennai</p>
+                    </div>
+                    <div class="text-right text-xs space-y-0.5 opacity-90">
+                        <p>+91 88381 35459</p>
+                        <p>askdrarunadevi@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-6 mb-8 border-b border-slate-200 pb-6">
+                    <div class="w-24 h-24 bg-slate-200 rounded-lg overflow-hidden border border-slate-300 flex items-center justify-center">
+                        <img id="pdf_view_profile" class="object-cover w-full h-full hidden" alt="Patient portrait">
+                        <span class="text-slate-400 text-xs tracking-tight text-center p-1 default-placeholder">No Image</span>
+                    </div>
+                    <div>
+                        <h2 id="pdf_view_name" class="text-2xl font-bold text-slate-800">[Patient Name]</h2>
+                        <p id="pdf_view_meta" class="text-slate-500 font-medium text-sm mt-1">[Age] • [Gender]</p>
+                    </div>
+                </div>
+
+                <!-- Case History Table Frame -->
+                <div class="mb-8">
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-3">Case History Matrix</h3>
+                    <table class="w-full text-xs border border-slate-200 rounded-lg overflow-hidden">
+                        <tbody>
+                            <tr class="bg-slate-50 border-b border-slate-200"><td class="p-3 font-semibold w-1/3 text-slate-600">Dentition</td><td id="pdf_view_dentition" class="p-3">[Dentition]</td></tr>
+                            <tr class="border-b border-slate-200"><td class="p-3 font-semibold text-slate-600">Medical History</td><td id="pdf_view_med_history" class="p-3">[Medical History]</td></tr>
+                            <tr class="bg-slate-50 border-b border-slate-200"><td class="p-3 font-semibold text-slate-600">Dental History</td><td id="pdf_view_dental_history" class="p-3">[Dental History]</td></tr>
+                            <tr class="border-b border-slate-200"><td class="p-3 font-semibold text-slate-600">Habits Logged</td><td id="pdf_view_habits" class="p-3">[Habits]</td></tr>
+                            <tr class="bg-slate-50"><td class="p-3 font-semibold text-slate-600">Reported Symptoms</td><td id="pdf_view_issues" class="p-3">[Issues]</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Health Score Framework Components[cite: 2] -->
+                <div class="border border-slate-200 rounded-xl p-5 mb-8 bg-slate-50/50">
+                    <div class="flex justify-between items-center mb-3">
+                        <h4 class="font-bold text-slate-700 text-sm">Oral Health Condition Score</h4>
+                        <span id="pdf_view_score" class="text-3xl font-black text-teal-700">[Score]</span>
+                    </div>
+                    <div class="w-full bg-slate-200 h-3 rounded-full overflow-hidden flex">
+                        <div class="bg-red-500 h-full w-1/3"></div>
+                        <div class="bg-amber-500 h-full w-1/3"></div>
+                        <div class="bg-emerald-500 h-full w-1/3"></div>
+                    </div>
+                    <div class="flex justify-between text-[10px] text-slate-500 font-bold mt-1.5 px-1 uppercase tracking-wider">
+                        <span>Critical Intervention</span>
+                        <span>Clinical Watch</span>
+                        <span>Optimal Health</span>
+                    </div>
+                </div>
+
+                <!-- Tri-Tier Issue Metrics[cite: 2] -->
+                <div class="grid grid-cols-3 gap-4 mb-8">
+                    <div class="bg-red-50 border border-red-100 p-3 rounded-lg text-center">
+                        <div id="pdf_view_tier1" class="text-xl font-bold text-red-700">0</div>
+                        <div class="text-[10px] font-medium text-red-600 uppercase tracking-tight mt-0.5">Active Treatment Needed</div>
+                    </div>
+                    <div class="bg-amber-50 border border-amber-100 p-3 rounded-lg text-center">
+                        <div id="pdf_view_tier2" class="text-xl font-bold text-amber-700">0</div>
+                        <div class="text-[10px] font-medium text-amber-600 uppercase tracking-tight mt-0.5">Clinical Monitoring</div>
+                    </div>
+                    <div class="bg-emerald-50 border border-emerald-100 p-3 rounded-lg text-center">
+                        <div id="pdf_view_tier3" class="text-xl font-bold text-emerald-700">0</div>
+                        <div class="text-[10px] font-medium text-emerald-600 uppercase tracking-tight mt-0.5">Preventive Home Care</div>
+                    </div>
+                </div>
+
+                <!-- Personalized Recommendations Block -->
+                <div class="mb-6">
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-3">Clinical Care Directives</h3>
+                    <ul id="pdf_view_recommendations" class="list-disc list-inside text-xs space-y-2 text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <!-- Dynamic lines append here -->
+                    </ul>
+                </div>
+
+                <!-- Footer Identification Line -->
+                <div class="absolute bottom-6 left-12 right-12 border-t border-slate-200 pt-3 flex justify-between text-[9px] text-slate-400 font-semibold uppercase tracking-wider">
+                    <span>© 2026 Sri Aura Dental Care</span>
+                    <span>Page 01</span>
+                </div>
+            </div>
+
+            <!-- PAGE 2: STRUCTURAL PHOTO TRACKING GRAPHICS -->
+            <div class="pdf-page">
+                <div class="border-b border-slate-200 pb-4 mb-6">
+                    <h2 class="text-base font-bold uppercase tracking-wider text-slate-600">Photographic Diagnostic Records</h2>
+                    <p class="text-xs text-slate-400 mt-0.5">High-definition intraoral captures mapping anatomical presentation</p>
+                </div>
+
+                <!-- Verification Photo Grid Display Area -->
+                <div class="space-y-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="border border-slate-200 rounded-xl p-3 bg-slate-50/50 text-center">
+                            <span class="text-[10px] font-bold uppercase text-slate-400 tracking-wider block mb-2">Maxillary Occlusal View</span>
+                            <div class="w-full h-48 bg-slate-200 rounded-lg overflow-hidden flex items-center justify-center border border-slate-300">
+                                <img id="pdf_view_upper" class="object-cover w-full h-full hidden" alt="Upper arch">
+                                <span class="text-slate-400 text-xs font-medium default-placeholder">Image Not Provided</span>
+                            </div>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-3 bg-slate-50/50 text-center">
+                            <span class="text-[10px] font-bold uppercase text-slate-400 tracking-wider block mb-2">Mandibular Occlusal View</span>
+                            <div class="w-full h-48 bg-slate-200 rounded-lg overflow-hidden flex items-center justify-center border border-slate-300">
+                                <img id="pdf_view_lower" class="object-cover w-full h-full hidden" alt="Lower arch">
+                                <span class="text-slate-400 text-xs font-medium default-placeholder">Image Not Provided</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Regulatory Compliance Warning Section[cite: 2] -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 mt-8">
+                        <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Privacy & Legal Compliance Directives</h4>
+                        <p class="text-[10px] text-slate-500 leading-relaxed text-justify">
+                            This electronic file diagnostics dossier falls under strict Doctor-Patient Privileged Communication rules. 
+                            All captured patient clinical tracking data points, system metrics, and high-resolution oral photos undergo internal cryptographic protection parameters. 
+                            Unauthorized general data duplication, public asset copying, or unverified structural distribution remains strictly actionable under regional medical records confidentiality laws.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-6 left-12 right-12 border-t border-slate-200 pt-3 flex justify-between text-[9px] text-slate-400 font-semibold uppercase tracking-wider">
+                    <span>Sri Aura Dental Care | Core Support Pipeline</span>
+                    <span>Page 02</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PIPELINE ARCHITECTURE CONTROL SCRIPT       -->
+    <!-- ========================================== -->
+    <script>
+        let currentStep = 1;
+        const totalSteps = 5;
+
+        // Interactive wizard page navigation algorithm
+        function moveStep(direction) {
+            const steps = document.querySelectorAll('.wizard-step');
+            steps[currentStep - 1].classList.remove('active');
+            
+            currentStep += direction;
+            steps[currentStep - 1].classList.add('active');
+
+            // Button visibility evaluation matrix
+            document.getElementById('prevBtn').disabled = (currentStep === 1);
+            
+            if (currentStep === totalSteps) {
+                document.getElementById('nextBtn').classList.add('hidden');
+                document.getElementById('submitBtn').classList.remove('hidden');
+            } else {
+                document.getElementById('nextBtn').classList.remove('hidden');
+                document.getElementById('submitBtn').classList.add('hidden');
+            }
+        }
+
+        // Processing utility mapping async file imports to standard baseline components
+        function extractFileImage(inputId, pdfTargetId) {
+            return new Promise((resolve) => {
+                const fileField = document.getElementById(inputId);
+                const targetImg = document.getElementById(pdfTargetId);
+                
+                if (fileField.files && fileField.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        targetImg.src = e.target.result;
+                        targetImg.classList.remove('hidden');
+                        // Toggle formatting placeholders off when custom content handles are active
+                        const parent = targetImg.parentElement;
+                        if(parent) {
+                            const placeholder = parent.querySelector('.default-placeholder');
+                            if(placeholder) placeholder.classList.add('hidden');
+                        }
+                        resolve(true);
+                    };
+                    reader.readAsDataURL(fileField.files[0]);
+                } else {
+                    resolve(false);
+                }
+            });
+        }
+
+        // Orchestration compilation engine translating standard fields into the print matrix
+        async function compileAndDownloadPDF() {
+            // Mapping string text value elements
+            document.getElementById('pdf_view_name').innerText = document.getElementById('input_name').value || 'Unlogged Case Record';
+            const age = document.getElementById('input_age').value || '--';
+            const gender = document.getElementById('input_gender').value;
+            document.getElementById('pdf_view_meta').innerText = `${age} • ${gender}`;
+            
+            document.getElementById('pdf_view_dentition').innerText = document.getElementById('input_dentition').value;
+            document.getElementById('pdf_view_med_history').innerText = document.getElementById('input_med_history').value;
+            document.getElementById('pdf_view_dental_history').innerText = document.getElementById('input_dental_history').value;
+            document.getElementById('pdf_view_habits').innerText = document.getElementById('input_habits').value || 'None';
+            document.getElementById('pdf_view_issues').innerText = document.getElementById('input_issues').value || 'None Reported';
+            document.getElementById('pdf_view_score').innerText = document.getElementById('input_score').value;
+            
+            document.getElementById('pdf_view_tier1').innerText = document.getElementById('input_tier1').value;
+            document.getElementById('pdf_view_tier2').innerText = document.getElementById('input_tier2').value;
+            document.getElementById('pdf_view_tier3').innerText = document.getElementById('input_tier3').value;
+
+            // Map recommendations array lines dynamically to structure lists cleanly
+            const linesInput = document.getElementById('input_recommendations').value;
+            const targetUl = document.getElementById('pdf_view_recommendations');
+            targetUl.innerHTML = '';
+            
+            if(linesInput.trim() !== "") {
+                linesInput.split('\n').forEach(line => {
+                    if(line.trim() !== "") {
+                        const li = document.createElement('li');
+                        li.innerText = line;
+                        targetUl.appendChild(li);
+                    }
+                });
+            } else {
+                targetUl.innerHTML = '<li class="list-none text-slate-400 italic">No specific clinical care directives logged.</li>';
+            }
+
+            // Await complete local resolution of async image elements to prevent canvas drops
+            await extractFileImage('img_profile', 'pdf_view_profile');
+            await extractFileImage('img_upper', 'pdf_view_upper');
+            await extractFileImage('img_lower', 'pdf_view_lower');
+
+            // Trigger structural rendering profile using html2pdf framework parameters
+            const reportTarget = document.getElementById('pdf-render-pipeline');
+            const fileSanitizedName = (document.getElementById('input_name').value || 'Patient').replace(/\s+/g, '_');
+            
+            const renderOptions = {
+                margin: 0,
+                filename: `SriAura_Report_${fileSanitizedName}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, logging: false },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().from(reportTarget).set(renderOptions).save();
+        }
+    </script>
+</body>
+</html>
