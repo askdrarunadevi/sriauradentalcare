@@ -31,15 +31,7 @@
         "addressCountry": "IN"
       },
       "areaServed": ["Bangalore", "Chennai"],
-      "priceRange": "â‚¹500-â‚¹5000",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "ratingCount": "1250",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
+      "priceRange": "INR 49-INR 5000",
       "sameAs": [
         "https://in.linkedin.com/in/dr-arunadevi-boobalan"
       ]
@@ -334,6 +326,72 @@
     .hero-actions {
       display: grid;
       gap: 11px;
+    }
+
+    .hero-card-grid {
+      display: grid;
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .hero-card {
+      padding: 26px;
+      border-radius: 24px;
+      background: var(--white);
+      border: 1px solid rgba(11, 75, 168, 0.12);
+      box-shadow: 0 18px 45px rgba(11, 75, 168, 0.08);
+    }
+
+    .hero-card-offer {
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-card-booking {
+      background: linear-gradient(180deg, rgba(11, 75, 168, 0.05), rgba(0, 169, 157, 0.08));
+    }
+
+    .hero-card-title {
+      display: block;
+      margin-bottom: 14px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .hero-card-price {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .price-old {
+      opacity: 0.65;
+      margin-right: 10px;
+      text-decoration: line-through;
+      font-weight: 600;
+    }
+
+    .hero-card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .hero-card-actions .btn {
+      min-width: 150px;
+    }
+
+    .quick-booking-form,
+    .quick-booking-actions {
+      display: grid;
+      gap: 14px;
+    }
+
+    .hero-card-booking .field {
+      margin-bottom: 0;
     }
 
     .micro-trust {
@@ -1223,7 +1281,11 @@
       }
 
       .pricing-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .hero-card-grid {
+        grid-template-columns: 1.05fr 0.95fr;
       }
 
       .booking-wrap {
@@ -1617,7 +1679,157 @@
       max-width: 1160px;
       margin: 0 auto;
     }
-        
+
+    .offer-strip {
+      padding: 54px 0 36px;
+      background: linear-gradient(145deg, var(--blue-soft), var(--teal-soft));
+    }
+
+    .offer-card {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      padding: 30px;
+      background: var(--white);
+      border: 1px solid rgba(11, 75, 168, 0.12);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .offer-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--blue-dark);
+      font-size: 0.76rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .offer-text,
+    .offer-now {
+      margin: 0;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .offer-old {
+      opacity: 0.7;
+      margin-left: 10px;
+      font-size: 0.95rem;
+      text-decoration: line-through;
+    }
+
+    .offer-now strong {
+      font-size: 1.6rem;
+      color: var(--blue-dark);
+    }
+
+    .offer-benefits {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding-left: 18px;
+      list-style: none;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .offer-benefits li::before {
+      content: "✓";
+      margin-right: 10px;
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .offer-actions {
+      display: grid;
+      gap: 12px;
+      justify-items: end;
+    }
+
+    .offer-actions .btn {
+      min-width: 165px;
+    }
+
+    .featured-services,
+    .why-prefer {
+      padding: 64px 0;
+    }
+
+    .featured-services .section-head,
+    .why-prefer .section-head {
+      max-width: 720px;
+      margin: 0 auto 30px;
+      text-align: center;
+    }
+
+    .service-feature-grid,
+    .why-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .service-feature-card,
+    .why-card {
+      padding: 24px;
+      border-radius: 20px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 30px rgba(11, 75, 168, 0.08);
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--ink);
+      min-height: 120px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .floating-widget {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 40;
+      display: grid;
+      gap: 12px;
+      align-items: end;
+    }
+
+    .floating-action {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: var(--blue);
+      color: var(--white);
+      box-shadow: 0 18px 32px rgba(11, 75, 168, 0.2);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      font-size: 1.2rem;
+    }
+
+    .floating-action:hover {
+      transform: translateY(-3px);
+    }
+
+    .floating-action.floating-whatsapp {
+      background: var(--teal);
+    }
+
+    .floating-action.floating-call {
+      background: #1d76c8;
+    }
+
+    .floating-action.floating-book {
+      background: #0b4ba8;
+    }
 
     .gallery-item {
       aspect-ratio: 1;
@@ -1625,15 +1837,32 @@
       border: 1px solid var(--line);
       border-radius: 16px;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: grid;
+      grid-template-rows: 1fr auto;
       font-size: 3rem;
       transition: transform 0.3s ease;
     }
 
     .gallery-item:hover {
       transform: scale(1.05);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      display: block;
+      object-fit: cover;
+    }
+
+    .gallery-item figcaption {
+      padding: 12px 14px;
+      color: var(--ink);
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      font-size: 0.82rem;
+      font-weight: 800;
+      line-height: 1.35;
     }
 
     .safety-promise {
@@ -1908,7 +2137,7 @@
 </head>
 <body>
   <div class="announcement">
-    Dental care in Bangalore &amp; Chennai | Home visit &amp; Clinic appointments available
+    Clinical &amp; Home Dental Care in Bangalore &amp; Chennai | Other locations on request
     <a href="tel:+918838135459">Call +91 88381 35459</a>
   </div>
 
@@ -1918,13 +2147,14 @@
         <span class="logo" aria-hidden="true">&#10022;</span>
         <span>
           <span class="brand-name">SRI AURA DENTAL CARE</span>
-          <span class="brand-sub">Dentistry at your doorstep</span>
+          <span class="brand-sub">Professional Oral Care at your doorstep</span>
         </span>
       </a>
       <div class="nav-links">
         <a href="#services">Services</a>
         <a href="#process">How it works</a>
         <a href="#doctor">Doctor</a>
+        <a href="#careers">Careers</a>
         <a href="#faq">FAQs</a>
         <a class="btn btn-whatsapp whatsapp-link" href="#" target="_blank" rel="noopener">WhatsApp Us</a>
       </div>
@@ -1936,17 +2166,52 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <div class="pill"><span class="pill-dot"></span> 15,000+ patient smiles | 7+ years of dental care</div>
-          <h1>Trusted home dental care, <span>right at your doorstep</span></h1>
+          <h1>Clinical &amp; Home Dental Care at Your Doorstep</h1>
           <p>
-            Behind every confident smile is care, trust, compassion, and expertise.
-            With 7+ years of practice and 15,000+ patient smiles, Dr. Arunadevi brings
-            caring, professional dental home visits to Bangalore and Chennai.
+            Professional Dental Care for Families, Children and Senior Citizens in Bangalore &amp; Chennai with Sterilized Instruments and Personalized Care.
           </p>
+          <p class="hero-highlight">Starting from &#8377;49 &bull; <strong>Book Now</strong></p>
           <div class="hero-actions">
             <a class="btn btn-whatsapp whatsapp-link" href="#" target="_blank" rel="noopener">
               <span aria-hidden="true">&#9679;</span> Enquire on WhatsApp
             </a>
             <a class="btn btn-outline" href="#booking">Request Appointment</a>
+          </div>
+          <div class="hero-card-grid">
+            <div class="hero-card hero-card-offer">
+              <span class="hero-card-title">Online Dental Consultation</span>
+              <p class="hero-card-price"><span class="price-old">&#8377;299</span> <strong>Now &#8377;49</strong></p>
+              <ul>
+                <li>Initial Dental Guidance</li>
+                <li>Treatment Recommendations</li>
+                <li>Consultation from Qualified Dentist</li>
+              </ul>
+              <div class="hero-card-actions">
+                <a class="btn btn-primary hero-card-cta whatsapp-link" href="#">Consult Now</a>
+                <a class="btn btn-outline whatsapp-link" href="#">WhatsApp Now</a>
+              </div>
+            </div>
+            <div class="hero-card hero-card-booking">
+              <span class="hero-card-title">Book Your Home Dental Visit in 30 Seconds</span>
+              <form id="quick-booking-form" class="quick-booking-form">
+                <div class="field">
+                  <label for="quick-name">Name</label>
+                  <input id="quick-name" name="name" type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="field">
+                  <label for="quick-phone">Phone Number</label>
+                  <input id="quick-phone" name="phone" type="tel" placeholder="+91 00000 00000" required>
+                </div>
+                <div class="field">
+                  <label for="quick-area">Area / Location</label>
+                  <input id="quick-area" name="area" type="text" placeholder="e.g. Whitefield, Bangalore" required>
+                </div>
+                <div class="quick-booking-actions">
+                  <button type="submit" class="btn btn-primary">Book Appointment</button>
+                  <a class="btn btn-whatsapp whatsapp-link" href="#">WhatsApp Now</a>
+                </div>
+              </form>
+            </div>
           </div>
           <div class="micro-trust" aria-label="Service highlights">
             <span><i class="check" aria-hidden="true">&#10003;</i> 15,000+ patient smiles</span>
@@ -1973,62 +2238,105 @@
       </div>
     </section>
 
-    <div class="emergency-banner">
-      <div class="emergency-content">
-        <div class="emergency-icon">ðŸš¨</div>
-        <div class="emergency-heading">Tooth Pain?</div>
-        <div class="emergency-subtext">Need urgent dental guidance?</div>
-        <div class="emergency-pricing">
-          <span class="emergency-price-new">Online Dental Consultation â€“ â‚¹59</span>
-          <br>
-          <span class="emergency-price-old">Regular Consultation â‚¹199</span>
+    <section class="offer-strip">
+      <div class="container">
+        <div class="offer-card">
+          <div>
+            <div class="offer-tag">Online Dental Consultation</div>
+            <p class="offer-text">Regular Consultation <span class="offer-old">&#8377;299</span></p>
+            <p class="offer-now">Now Only <strong>&#8377;49</strong></p>
+            <ul class="offer-benefits">
+              <li>Initial Dental Guidance</li>
+              <li>Treatment Recommendations</li>
+              <li>Consultation from Qualified Dentist</li>
+            </ul>
+          </div>
+          <div class="offer-actions">
+            <a class="btn btn-primary whatsapp-link" href="#">Consult Now</a>
+            <a class="btn btn-outline whatsapp-link" href="#">WhatsApp Now</a>
+          </div>
         </div>
-        <div class="emergency-actions">
-          <a href="tel:+918838135459" class="btn">ðŸ“ž Call Now</a>
-          <a href="#" class="btn whatsapp-link">ðŸ’¬ WhatsApp Now</a>
-        </div>
-        <div class="emergency-note">âœ“ Same-Day Consultation Available (Subject to Availability)</div>
       </div>
-    </div>
+    </section>
 
-    <div class="trust-badge-strip">
+    <section class="featured-services">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Most Requested Home Dental Services</span>
+          <h2>Most Requested Home Dental Services</h2>
+          <p>Trusted care for the services families call us for most.</p>
+        </div>
+        <div class="service-feature-grid">
+          <div class="service-feature-card">🔥 Teeth Cleaning &amp; Scaling</div>
+          <div class="service-feature-card">🔥 Dental Check-up</div>
+          <div class="service-feature-card">🔥 Tooth-Colored Fillings</div>
+          <div class="service-feature-card">🔥 Senior Citizen Dental Care</div>
+          <div class="service-feature-card">🔥 Tooth Pain Consultation</div>
+        </div>
+        <div class="section-actions" style="text-align:center; margin-top:24px;">
+          <a href="#booking" class="btn btn-whatsapp whatsapp-link">Book Home Visit</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-prefer">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Why Patients Prefer Sri Aura Dental Care</span>
+          <h2>Why Patients Prefer Sri Aura Dental Care</h2>
+          <p>Professional home dentistry with the trust, comfort and safety families want.</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-card">✓ No Travel Required</div>
+          <div class="why-card">✓ No Waiting Rooms</div>
+          <div class="why-card">✓ Senior Citizen Friendly</div>
+          <div class="why-card">✓ Child Friendly</div>
+          <div class="why-card">✓ Sterilized Instruments</div>
+          <div class="why-card">✓ Personalized Care</div>
+          <div class="why-card">✓ Convenient Home Visits</div>
+          <div class="why-card">✓ Saves Travel Time</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-badge-strip">
       <div class="trust-badges-grid">
         <div class="trust-badge-item">
-          <div class="trust-badge-icon">â­</div>
+          <div class="trust-badge-icon">✔</div>
           <div class="trust-badge-label">15,000+ Happy Smiles</div>
           <div class="trust-badge-subtext">Patient Success Stories</div>
         </div>
         <div class="trust-badge-item">
-          <div class="trust-badge-icon">ðŸ¦·</div>
+          <div class="trust-badge-icon">📈</div>
           <div class="trust-badge-label">7+ Years Experience</div>
           <div class="trust-badge-subtext">Professional Excellence</div>
         </div>
         <div class="trust-badge-item">
-          <div class="trust-badge-icon">ðŸ </div>
+          <div class="trust-badge-icon">🏠</div>
           <div class="trust-badge-label">Home Dental Visits</div>
-          <div class="trust-badge-subtext">Clinic Appointments Also Available</div>
+          <div class="trust-badge-subtext">Clinic launch in planning</div>
         </div>
         <div class="trust-badge-item">
-          <div class="trust-badge-icon">ðŸ‘´</div>
+          <div class="trust-badge-icon">👨‍👩‍👧</div>
           <div class="trust-badge-label">Senior Citizen Friendly</div>
           <div class="trust-badge-subtext">Compassionate Care</div>
         </div>
         <div class="trust-badge-item">
-          <div class="trust-badge-icon">ðŸ›¡</div>
+          <div class="trust-badge-icon">🧼</div>
           <div class="trust-badge-label">Sterilized Instruments</div>
           <div class="trust-badge-subtext">Safety First</div>
         </div>
       </div>
-    </div>
 
-    <div class="trust-strip" aria-label="Why choose home dental care">
-      <div class="container trust-grid">
-        <div class="trust-item"><strong>Doorstep Visits</strong><span>Care where you are</span></div>
-        <div class="trust-item"><strong>Portable Setup</strong><span>Essential equipment brought along</span></div>
-        <div class="trust-item"><strong>Family Focused</strong><span>Support across age groups</span></div>
-        <div class="trust-item"><strong>Two-City Coverage</strong><span>Bangalore &amp; Chennai</span></div>
+      <div class="trust-strip" aria-label="Why choose home dental care">
+        <div class="container trust-grid">
+          <div class="trust-item"><strong>Doorstep Visits</strong><span>Care where you are</span></div>
+          <div class="trust-item"><strong>Portable Setup</strong><span>Essential equipment brought along</span></div>
+          <div class="trust-item"><strong>Family Focused</strong><span>Support across age groups</span></div>
+          <div class="trust-item"><strong>Two-City Coverage</strong><span>Bangalore &amp; Chennai</span></div>
+        </div>
       </div>
-    </div>
+    </section>
 
     <section>
       <div class="container">
@@ -2052,7 +2360,7 @@
           </div>
           <div class="promise-card">
             <strong>Future clinic in planning</strong>
-            <span>Todayâ€™s focus is home visits, while clinic preparation and a broader care platform are already underway.</span>
+            <span>Today's focus is home visits, while clinic preparation and a broader care platform are already underway.</span>
           </div>
         </div>
       </div>
@@ -2065,8 +2373,8 @@
           <h2>Comprehensive care, thoughtfully coordinated</h2>
           <p>
             Begin with an at-home assessment or WhatsApp consultation. Dr. Arunadevi
-            will explain what is suitable at home and coordinate clinic-based care when
-            advanced equipment, imaging, or procedures are required.
+            will explain what is suitable at home and guide you when advanced equipment,
+            imaging, or clinic-based procedures are required.
           </p>
         </div>
         <div class="treatment-visual">
@@ -2110,34 +2418,55 @@
           </article>
           <article class="service-card">
             <span class="service-number">05</span>
+            <div class="service-icon" aria-hidden="true">🔍</div>
+            <h3>Cavity Finding &amp; Detection</h3>
+            <p>Advanced cavity detection and early diagnosis to prevent dental problems before they worsen.</p>
+            <a class="whatsapp-link" href="#" target="_blank" rel="noopener">Ask about this service &#8594;</a>
+          </article>
+          <article class="service-card">
+            <span class="service-number">06</span>
+            <div class="service-icon" aria-hidden="true">🦷</div>
+            <h3>Cavity Removal &amp; Treatment</h3>
+            <p>Precise cavity removal with tooth-coloured composite restoration for a natural-looking smile.</p>
+            <a class="whatsapp-link" href="#" target="_blank" rel="noopener">Ask about this service &#8594;</a>
+          </article>
+          <article class="service-card">
+            <span class="service-number">07</span>
+            <div class="service-icon" aria-hidden="true">✨</div>
+            <h3>Professional Tooth Polishing</h3>
+            <p>Professional cleaning and polishing to remove stains, restore brightness, and improve overall smile aesthetics.</p>
+            <a class="whatsapp-link" href="#" target="_blank" rel="noopener">Ask about this service &#8594;</a>
+          </article>
+          <article class="service-card">
+            <span class="service-number">08</span>
             <div class="service-icon" aria-hidden="true">&#9737;</div>
             <h3>Dentures &amp; Prosthetic Care</h3>
             <p>Evaluation and support for dentures, crowns, bridges, implant prosthetics, comfort, and maintenance.</p>
             <a class="whatsapp-link" href="#" target="_blank" rel="noopener">Ask about this service &#8594;</a>
           </article>
           <article class="service-card">
-            <span class="service-number">06</span>
+            <span class="service-number">09</span>
             <div class="service-icon" aria-hidden="true">&#9889;</div>
             <h3>Cosmetic Dentistry</h3>
             <p>Personalised guidance for smile design and cosmetic procedures based on oral health and treatment goals.</p>
             <a class="whatsapp-link" href="#" target="_blank" rel="noopener">Ask about this service &#8594;</a>
           </article>
           <article class="service-card">
-            <span class="service-number">07</span>
+            <span class="service-number">10</span>
             <div class="service-icon" aria-hidden="true">&#9889;</div>
             <h3>Dental Pain Management</h3>
             <p>Prompt assessment of tooth pain, sensitivity, swelling, and discomfort with clear next-step guidance.</p>
             <a class="whatsapp-link" href="#" target="_blank" rel="noopener">Ask about this service &#8594;</a>
           </article>
           <article class="service-card">
-            <span class="service-number">08</span>
+            <span class="service-number">11</span>
             <div class="service-icon" aria-hidden="true">&#10010;</div>
             <h3>Extraction &amp; Minor Surgery</h3>
             <p>Clinical assessment and clinic coordination for tooth extraction and minor oral surgical procedures.</p>
             <a class="whatsapp-link" href="#" target="_blank" rel="noopener">Ask about this service &#8594;</a>
           </article>
           <article class="service-card">
-            <span class="service-number">09</span>
+            <span class="service-number">12</span>
             <div class="service-icon" aria-hidden="true">&#9825;</div>
             <h3>Senior &amp; Family Dentistry</h3>
             <p>Patient-centred support for seniors, children, busy families, and patients with mobility limitations.</p>
@@ -2175,6 +2504,29 @@
       </div>
     </section>
 
+    <section class="featured-services">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Dental awareness camps</span>
+          <h2>Group screening available on request</h2>
+          <p>
+            Dental health screening and awareness sessions can be coordinated for
+            groups in Bangalore, Chennai, and other locations based on request.
+          </p>
+        </div>
+        <div class="service-feature-grid">
+          <div class="service-feature-card">Schools</div>
+          <div class="service-feature-card">Apartments</div>
+          <div class="service-feature-card">Offices</div>
+          <div class="service-feature-card">Senior citizen groups</div>
+          <div class="service-feature-card">Community associations</div>
+        </div>
+        <div class="section-actions" style="text-align:center; margin-top:24px;">
+          <a class="btn btn-whatsapp whatsapp-link" href="#" target="_blank" rel="noopener">Ask for group pricing</a>
+        </div>
+      </div>
+    </section>
+
     <section class="pricing">
       <div class="container">
         <div class="section-head">
@@ -2184,14 +2536,19 @@
         </div>
         <div class="pricing-grid">
           <article class="pricing-card">
-            <strong>Cleaning &amp; Filling offer</strong>
-            <p class="price"><del>â‚¹1500</del> <strong>â‚¹1,199 / person</strong></p>
-            <p>Home visit package pricing for cleaning plus filling support when clinically suitable.</p>
+            <strong>Home consultation + cleaning</strong>
+            <p class="price"><del>&#8377;2,000</del> <strong>&#8377;1,599 / person</strong></p>
+            <p>Home consultation with dental cleaning and scaling when clinically suitable.</p>
+          </article>
+          <article class="pricing-card">
+            <strong>Minor tooth filling</strong>
+            <p class="price"><del>&#8377;2,000</del> <strong>&#8377;1,399 / filling</strong></p>
+            <p>Tooth-coloured composite filling - good quality support after examination and suitability check.</p>
           </article>
           <article class="pricing-card">
             <strong>Family cleaning + consultation</strong>
-            <p class="price"><del>â‚¹1500</del> <strong>â‚¹1,099 / person</strong></p>
-            <p>For 3 or more family members in the same home, a clean, consultative offer priced per person.</p>
+            <p class="price"><del>&#8377;2,000</del> <strong>&#8377;1,299 / person</strong></p>
+            <p>For 3 or more family members in the same home, discount priced per person.</p>
           </article>
         </div>
       </div>
@@ -2240,8 +2597,12 @@
               <span><strong>Prior experience:</strong> Senior Dental Surgeon at Sha Dental Care, Sowcarpet, Chennai; Dental Assistant at The Tusk Multispecialty Clinic.</span>
             </div>
             <div class="doctor-detail">
+              <i aria-hidden="true">&#8470;</i>
+              <span><strong>Registration:</strong> Dental Council of India Reg. No. 30625</span>
+            </div>
+            <div class="doctor-detail">
               <i aria-hidden="true">&#128100;</i>
-              <span><strong>Daily scope:</strong> Leading clinical operations, mentoring staff, managing 10â€“20 patients per day, and delivering advanced restorative and cosmetic treatments.</span>
+              <span><strong>Daily scope:</strong> Leading clinical operations, mentoring staff, managing 10-20 patients per day, and delivering advanced restorative and cosmetic treatments.</span>
             </div>
             <div class="doctor-detail">
               <i aria-hidden="true">&#10010;</i>
@@ -2345,6 +2706,40 @@
       </div>
     </section>
 
+    <section style="padding: 72px 0; background: linear-gradient(135deg, var(--blue-soft), var(--teal-soft)); border-radius: 28px; margin: 60px 0;" id="careers">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Grow Your Career</span>
+          <h2>Join Sri Aura Dental Care Team</h2>
+          <p>We're expanding our clinical operations in Bangalore and Chennai. If you're a qualified dental professional looking for a collaborative, patient-centered environment, we'd love to hear from you.</p>
+        </div>
+        <div class="benefit-cards" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-top: 40px;">
+          <div class="benefit-card" style="border: none; background: var(--white);">
+            <div class="benefit-icon">👨‍⚕️</div>
+            <div class="benefit-title">Dental Surgeons</div>
+            <div class="benefit-text">Join our expanding clinic network in Bangalore and Chennai. Work with modern equipment and a patient-centered team.</div>
+          </div>
+          <div class="benefit-card" style="border: none; background: var(--white);">
+            <div class="benefit-icon">🦷</div>
+            <div class="benefit-title">Dental Therapists</div>
+            <div class="benefit-text">Support our clinical operations with expertise in preventive care, patient communication, and treatment coordination.</div>
+          </div>
+          <div class="benefit-card" style="border: none; background: var(--white);">
+            <div class="benefit-icon">💼</div>
+            <div class="benefit-title">Clinical Coordinators</div>
+            <div class="benefit-text">Help us deliver seamless patient experiences through appointment management and clinical support.</div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+          <p style="font-size: 1.1rem; color: var(--ink); margin-bottom: 20px;"><strong>Interested in joining our team?</strong></p>
+          <a class="btn btn-whatsapp whatsapp-link" href="#" target="_blank" rel="noopener" style="display: inline-flex;">
+            <span aria-hidden="true">💼</span> Send Your Profile on WhatsApp
+          </a>
+          <p style="font-size: 0.9rem; color: var(--text); margin-top: 16px;">Share your CV, qualifications, and experience. We'll reach out to discuss opportunities.</p>
+        </div>
+      </div>
+    </section>
+
             <section>
         <div class="container">
           <div class="section-head">
@@ -2387,48 +2782,61 @@
             <p>Safe, patient-face-free dental progress imagery for informed care decisions.</p>
           </div>
           <div class="gallery-grid">
-            <div class="gallery-item">
-              <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800'%3E%3Crect width='100%25' height='100%25' fill='%23eaf2ff'/%3E%3Ctext x='50%25' y='45%25' font-size='42' text-anchor='middle' fill='%230b4ba8' font-family='Arial'%3EBefore%20Care%3C/text%3E%3C/svg%3E" alt="Before care placeholder" loading="lazy">
-            </div>
-            <div class="gallery-item">
-              <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800'%3E%3Crect width='100%25' height='100%25' fill='%23eaf2ff'/%3E%3Ctext x='50%25' y='45%25' font-size='42' text-anchor='middle' fill='%230b4ba8' font-family='Arial'%3EAfter%20Care%3C/text%3E%3C/svg%3E" alt="After care placeholder" loading="lazy">
-            </div>
-            <div class="gallery-item">
-              <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800'%3E%3Crect width='100%25' height='100%25' fill='%23eaf2ff'/%3E%3Ctext x='50%25' y='45%25' font-size='42' text-anchor='middle' fill='%230b4ba8' font-family='Arial'%3EDental%20Results%3C/text%3E%3C/svg%3E" alt="Dental results placeholder" loading="lazy">
-            </div>
+            <figure class="gallery-item">
+              <img src="assets/case-cleaning-before-after.jpg" alt="Before and after professional teeth cleaning" loading="lazy">
+              <figcaption>Professional Cleaning</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="assets/case-restoration-pre-post.jpg" alt="Tooth restoration before and after" loading="lazy">
+              <figcaption>Tooth Restoration</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="assets/case-rct-radiograph-1.jpg" alt="Root canal treatment radiograph" loading="lazy">
+              <figcaption>Root Canal Treatment</figcaption>
+            </figure>
           </div>
-          <p style="text-align:center; font-size:0.9rem; color:var(--text); margin-top:24px;">
-            <em>Placeholder gallery images are shown until patient-consented before/after photos are available.</em>
-          </p>
         </div>
       </section>
 
       <section class="reviews-section">
         <div class="container">
           <div class="section-head">
-            <span class="eyebrow">Patient voices</span>
-            <h2>Trusted By Families Across Bangalore & Chennai</h2>
-            <p>4.9 rating from patients who value comfort, trust, and gentle care.</p>
+            <span class="eyebrow">Feedback and payments</span>
+            <h2>Built for real patient trust</h2>
+            <p>
+              The website is ready to collect verified feedback and add payment
+              convenience once the official links and QR are confirmed.
+            </p>
           </div>
           <div class="reviews-grid">
             <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <div class="review-text">Excellent home dental care! Dr. Arunadevi is professional, compassionate, and thorough. Highly recommended for families.</div>
-              <div class="review-author">- Priya M., Bangalore</div>
+              <div class="review-stars">&#9733;</div>
+              <div class="review-author">Collect Google reviews</div>
+              <div class="review-text">
+                Add your official Google Business Profile review link here so
+                patients can leave public, verified feedback after treatment.
+              </div>
             </div>
             <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <div class="review-text">Perfect solution for seniors. No travel, same comfort and expertise. My mother felt so at ease.</div>
-              <div class="review-author">- Rajesh S., Chennai</div>
+              <div class="review-stars">&#128172;</div>
+              <div class="review-author">WhatsApp feedback</div>
+              <div class="review-text">
+                Patients can quickly share feedback on WhatsApp. Useful for
+                follow-up, improvement, and asking permission before publishing.
+              </div>
             </div>
             <div class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <div class="review-text">Efficient, hygienic, and trustworthy. The personalized attention and care was evident. Worth every rupee!</div>
-              <div class="review-author">- Sneha K., Bangalore</div>
+              <div class="review-stars">&#8377;</div>
+              <div class="review-author">UPI QR payment ready</div>
+              <div class="review-text">
+                A verified UPI QR or UPI ID can be added for easy payment after
+                appointment confirmation. Do not publish unverified payment details.
+              </div>
             </div>
           </div>
           <p style="text-align:center; font-size:0.85rem; color:var(--text); margin-top:28px; font-weight:600;">
-            Ready to join our 15,000+ happy patients? <a href="#booking" style="color:var(--blue); text-decoration:underline;">Book your appointment today</a>
+            For now, patients can <a class="whatsapp-link" href="#" target="_blank" rel="noopener" style="color:var(--blue); text-decoration:underline;">share feedback on WhatsApp</a>
+            or email <a href="mailto:askdrarunadevi@gmail.com" style="color:var(--blue); text-decoration:underline;">askdrarunadevi@gmail.com</a>.
           </p>
         </div>
       </section>
@@ -2497,7 +2905,7 @@
           <div class="field field-full">
             <label for="message">Tell us a little more</label>
             <textarea id="message" name="message" placeholder="Describe the dental concern or preferred appointment time"></textarea>
-            <p class="form-note">Sunday visits are only available between 7AM and 9PM. Mondayâ€“Saturday slots are morning 7AMâ€“9AM or evening 7PMâ€“9PM.</p>
+            <p class="form-note">Sunday visits are available between 7AM and 9PM. Monday-Saturday slots are morning 7AM-9AM or evening 7PM-9PM.</p>
           </div>
           <button class="btn btn-whatsapp" type="submit">Continue on WhatsApp &#8594;</button>
           <p class="form-note">Submitting this form opens WhatsApp. Your message is sent only after you confirm it there.</p>
@@ -2507,7 +2915,7 @@
     <section>
       <div class="container">
         <div class="urgency-section">
-          <div class="urgency-text">â° Limited Appointment Slots Available Each Day</div>
+          <div class="urgency-text">&#9200; Limited Appointment Slots Available Each Day</div>
           <div class="urgency-highlight">Advance Booking Recommended</div>
           <div class="urgency-contact">Call or WhatsApp: +91 88381 35459</div>
         </div>
@@ -2518,9 +2926,9 @@
       <h2 class="final-cta-heading">Healthy Smiles, Right at Your Doorstep</h2>
       <p class="final-cta-subheading">Professional Home Dental Care in Bangalore & Chennai</p>
       <div class="final-cta-actions">
-        <a href="#booking" class="btn">ðŸ“… Book Appointment</a>
-        <a href="#" class="btn whatsapp-link">ðŸ’¬ WhatsApp Now</a>
-        <a href="tel:+918838135459" class="btn">ðŸ“ž Call Now</a>
+        <a href="#booking" class="btn">&#128197; Book Appointment</a>
+        <a href="#" class="btn whatsapp-link">&#128172; WhatsApp Now</a>
+        <a href="tel:+918838135459" class="btn">&#9742; Call Now</a>
       </div>
     </section>
   </main>
@@ -2564,6 +2972,27 @@
     const whatsappNumber = "918838135459";
     const defaultMessage = "Hello Sri Aura Dental Care, I would like to enquire about a dental care appointment.";
 
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+
+    function trackEvent(action, label) {
+      if (window.gtag) {
+        window.gtag('event', action, {
+          event_category: 'Engagement',
+          event_label: label
+        });
+      }
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          event: action,
+          event_category: 'Engagement',
+          event_label: label
+        });
+      }
+    }
+
     function whatsappUrl(message) {
       const base = whatsappNumber
         ? "https://wa.me/" + whatsappNumber
@@ -2573,25 +3002,53 @@
 
     document.querySelectorAll(".whatsapp-link").forEach(function (link) {
       link.href = whatsappUrl(defaultMessage);
+      link.addEventListener('click', function () {
+        trackEvent('whatsapp_click', document.title + ' - ' + (link.textContent.trim() || 'WhatsApp Link'));
+      });
     });
 
-    document.getElementById("booking-form").addEventListener("submit", function (event) {
-      event.preventDefault();
-      const data = new FormData(event.currentTarget);
-      const message = [
-        "Hello Sri Aura Dental Care, I would like to request a home dental appointment.",
-        "",
-        "Patient: " + data.get("name"),
-        "Mobile: " + data.get("phone"),
-        "City: " + data.get("city"),
-        "Area: " + data.get("area"),
-        "Service: " + data.get("service"),
-        "Preferred slot: " + data.get("slot"),
-        "Details: " + (data.get("message") || "Not provided")
-      ].join("\n");
+    const quickBookingForm = document.getElementById("quick-booking-form");
+    if (quickBookingForm) {
+      quickBookingForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        const message = [
+          "Hello Sri Aura Dental Care, I would like to request a home dental visit appointment.",
+          "",
+          "Name: " + data.get("name"),
+          "Phone: " + data.get("phone"),
+          "Area: " + data.get("area"),
+          "Preferred city: Bangalore or Chennai",
+          "Preferred visit type: Home dental care"
+        ].join("\n");
 
-      window.open(whatsappUrl(message), "_blank", "noopener");
-    });
+        trackEvent('quick_booking_form_submit', data.get('area') || 'Quick booking');
+        window.open(whatsappUrl(message), "_blank", "noopener");
+      });
+    }
+
+    const bookingForm = document.getElementById("booking-form");
+    if (bookingForm) {
+      bookingForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        const message = [
+          "Hello Sri Aura Dental Care, I would like to request a home dental appointment.",
+          "",
+          "Patient: " + data.get("name"),
+          "Mobile: " + data.get("phone"),
+          "City: " + data.get("city"),
+          "Area: " + data.get("area"),
+          "Service: " + data.get("service"),
+          "Preferred slot: " + data.get("slot"),
+          "Details: " + (data.get("message") || "Not provided")
+        ].join("\n");
+
+        trackEvent('booking_form_submit', data.get('service') + ' | ' + data.get('city'));
+        window.open(whatsappUrl(message), "_blank", "noopener");
+      });
+    }
+
   </script>
   <script>
     // Floating Widget for Desktop
@@ -2600,13 +3057,13 @@
       widget.className = 'floating-widget visible';
       widget.innerHTML = `
         <button class="floating-action floating-call" onclick="window.location.href='tel:+918838135459'" title="Call Now">
-          ðŸ“ž
+          &#9742;
         </button>
         <button class="floating-action floating-whatsapp whatsapp-link" onclick="handleFloatingWhatsApp()" title="WhatsApp Now">
-          ðŸ’¬
+          &#128172;
         </button>
         <button class="floating-action floating-book" onclick="window.location.href='#booking'" title="Book Appointment">
-          ðŸ“…
+          &#128197;
         </button>
       `;
       document.body.appendChild(widget);
@@ -2708,4 +3165,3 @@
   </script>
 </body>
 </html>
-
