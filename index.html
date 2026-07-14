@@ -212,10 +212,17 @@
     .nav-links {
       display: none;
       align-items: center;
-      gap: 28px;
+      gap: clamp(12px, 2vw, 28px);
       color: var(--ink);
       font-size: 0.9rem;
       font-weight: 700;
+    }
+
+    .announcement a {
+      margin-left: 10px;
+      color: var(--white);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     .nav-links > a:not(.btn):hover {
@@ -437,6 +444,41 @@
       background: linear-gradient(150deg, var(--primary-dark), var(--primary) 60%, var(--accent-dark));
       border-radius: 34px;
       box-shadow: var(--shadow);
+    }
+
+    .care-route--photo {
+      min-height: 430px;
+      padding: 0;
+      display: grid;
+      align-items: end;
+      background: #3e3123;
+    }
+
+    .care-route--photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      grid-area: 1 / 1;
+      opacity: 0.94;
+    }
+
+    .care-route--photo .route-top,
+    .care-route--photo .route-bottom {
+      grid-area: 1 / 1;
+      z-index: 2;
+    }
+
+    .care-route--photo .route-top {
+      align-self: start;
+      justify-self: start;
+      margin: 26px;
+    }
+
+    .care-route--photo .route-bottom {
+      width: 100%;
+      padding: 24px 28px;
+      background: linear-gradient(transparent, rgba(26, 18, 10, 0.88));
     }
 
     .care-route::before,
@@ -1681,9 +1723,9 @@
 
     .gallery-grid {
       display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      max-width: 1160px;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      max-width: 1040px;
       margin: 0 auto;
     }
 
@@ -1795,6 +1837,112 @@
       display: grid;
       place-items: center;
       text-align: center;
+    }
+
+    .service-feature-card,
+    .why-card,
+    .camp-card {
+      gap: 10px;
+    }
+
+    .tile-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto;
+      border-radius: 18px;
+      background: linear-gradient(145deg, var(--accent-soft), #fff);
+      box-shadow: 0 9px 18px rgba(139, 111, 71, 0.12);
+      font-size: 1.55rem;
+    }
+
+    .service-feature-card span:last-child,
+    .why-card span:last-child,
+    .camp-card span:last-child {
+      display: block;
+    }
+
+    .camp-card {
+      min-height: 146px;
+    }
+
+    .trust-visual {
+      display: grid;
+      gap: 28px;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      align-items: center;
+      max-width: 1160px;
+      margin: 0 auto 28px;
+    }
+
+    .trust-visual img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .offer-pricing {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 24px;
+    }
+
+    .offer-price-item {
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(139, 111, 71, 0.16);
+      border-radius: 18px;
+    }
+
+    .offer-price-item strong,
+    .offer-price-item span {
+      display: block;
+    }
+
+    .offer-price-item strong {
+      color: var(--primary-dark);
+      font-size: 1.15rem;
+    }
+
+    .career-card {
+      display: grid;
+      gap: 28px;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      align-items: center;
+      max-width: 880px;
+      margin: 38px auto 0;
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(139, 111, 71, 0.16);
+      border-radius: 28px;
+    }
+
+    .career-card img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .career-card h3 {
+      margin-bottom: 8px;
+      font-size: 1.45rem;
+    }
+
+    @media (max-width: 767px) {
+      .offer-pricing,
+      .trust-visual,
+      .career-card {
+        grid-template-columns: 1fr;
+      }
+
+      .care-route--photo {
+        min-height: 360px;
+      }
     }
 
     .floating-widget {
@@ -2158,7 +2306,7 @@
 </head>
 <body>
   <div class="announcement">
-    Reach us for the best discount on home dental care.
+    Reach us for the best discount on home dental care at your doorstep in Bangalore &amp; Chennai.
     <a class="whatsapp-link" href="#" target="_blank" rel="noopener">WhatsApp +91 88381 35459</a>
   </div>
 
@@ -2200,8 +2348,8 @@
           </div>
           <div class="hero-card-grid">
             <div class="hero-card hero-card-offer">
-              <span class="hero-card-title">Online Dental Consultation</span>
-              <p class="hero-card-price"><span class="price-old">&#8377;299</span> <strong>Now &#8377;49</strong></p>
+              <span class="hero-card-title">Free Online Dental Consultation</span>
+              <p class="hero-card-price"><span class="price-old">&#8377;299</span> <strong>Now Free</strong></p>
               <ul>
                 <li>Initial Dental Guidance</li>
                 <li>Treatment Recommendations</li>
@@ -2242,19 +2390,14 @@
           </div>
         </div>
 
-        <div class="care-route" aria-label="Dental care travelling to your home in Bangalore and Chennai">
+        <div class="care-route care-route--photo" aria-label="Dental care travelling to your home in Bangalore and Chennai">
+          <img src="assets/home-visit-dentist-ai.jpg" alt="Professional dentist arriving for a home dental visit" loading="eager">
           <div class="route-top">
             <span class="route-label">&#9679; Bangalore &amp; Chennai service</span>
           </div>
-          <div class="route-visual" aria-hidden="true">
-            <div class="route-line"></div>
-            <div class="dentist-icon">&#129463;</div>
-            <div class="route-pin"><span>&#10022;</span></div>
-            <div class="home-icon">&#8962;</div>
-          </div>
           <div class="route-bottom">
-            <strong>Your home becomes the care space.</strong>
-            <small>Simple.<br>Comfortable.<br>Personal.</small>
+            <strong>Professional care, at your doorstep.</strong>
+            <small>Bangalore<br>&amp; Chennai</small>
           </div>
         </div>
       </div>
@@ -2264,12 +2407,13 @@
       <div class="container">
         <div class="offer-card">
           <div>
-            <div class="offer-tag">Online Dental Consultation</div>
-            <p class="offer-text">Regular Consultation <span class="offer-old">&#8377;299</span></p>
-            <p class="offer-now">Now Only <strong>&#8377;49</strong></p>
+            <div class="offer-tag">Limited-time online offer</div>
+            <p class="offer-text">Online Dental Consultation <span class="offer-old">&#8377;299</span></p>
+            <p class="offer-now">Now <strong>Free</strong></p>
             <ul class="offer-benefits">
               <li>Initial Dental Guidance</li>
               <li>Treatment Recommendations</li>
+              <li>Detailed Oral Health Report</li>
               <li>Consultation from Qualified Dentist</li>
             </ul>
           </div>
@@ -2277,6 +2421,11 @@
             <a class="btn btn-primary whatsapp-link" href="#">Consult Now</a>
             <a class="btn btn-outline whatsapp-link" href="#">WhatsApp Now</a>
           </div>
+        </div>
+        <div class="offer-pricing" aria-label="Home dental care price details">
+          <div class="offer-price-item"><span>Home consultation + cleaning</span><strong>&#8377;1,299 / person</strong></div>
+          <div class="offer-price-item"><span>Minor tooth filling</span><strong>&#8377;1,299 / filling</strong></div>
+          <div class="offer-price-item"><span>Family or group appointments</span><strong>Reach us for the best discount</strong></div>
         </div>
       </div>
     </section>
@@ -2289,11 +2438,12 @@
           <p>Trusted care for the services families call us for most.</p>
         </div>
         <div class="service-feature-grid">
-          <div class="service-feature-card">🔥 Teeth Cleaning &amp; Scaling</div>
-          <div class="service-feature-card">🔥 Dental Check-up</div>
-          <div class="service-feature-card">🔥 Tooth-Colored Fillings</div>
-          <div class="service-feature-card">🔥 Senior Citizen Dental Care</div>
-          <div class="service-feature-card">🔥 Tooth Pain Consultation</div>
+          <div class="service-feature-card"><span class="tile-icon">✨</span><span>Teeth Cleaning &amp; Scaling</span></div>
+          <div class="service-feature-card"><span class="tile-icon">🦷</span><span>Dental Check-up</span></div>
+          <div class="service-feature-card"><span class="tile-icon">✦</span><span>Tooth-Colored Fillings</span></div>
+          <div class="service-feature-card"><span class="tile-icon">💛</span><span>Senior Citizen Dental Care</span></div>
+          <div class="service-feature-card"><span class="tile-icon">⚕</span><span>Tooth Pain Consultation</span></div>
+          <div class="service-feature-card"><span class="tile-icon">🔎</span><span>Cavity Finding &amp; Basic Removal</span></div>
         </div>
         <div class="section-actions" style="text-align:center; margin-top:24px;">
           <a href="#booking" class="btn btn-whatsapp whatsapp-link">Book Home Visit</a>
@@ -2309,14 +2459,14 @@
           <p>Professional home dentistry with the trust, comfort and safety families want.</p>
         </div>
         <div class="why-grid">
-          <div class="why-card">✓ No Travel Required</div>
-          <div class="why-card">✓ No Waiting Rooms</div>
-          <div class="why-card">✓ Senior Citizen Friendly</div>
-          <div class="why-card">✓ Child Friendly</div>
-          <div class="why-card">✓ Sterilized Instruments</div>
-          <div class="why-card">✓ Personalized Care</div>
-          <div class="why-card">✓ Convenient Home Visits</div>
-          <div class="why-card">✓ Saves Travel Time</div>
+          <div class="why-card"><span class="tile-icon">🏠</span><span>No Travel Required</span></div>
+          <div class="why-card"><span class="tile-icon">⏱</span><span>No Waiting Rooms</span></div>
+          <div class="why-card"><span class="tile-icon">💛</span><span>Senior Citizen Friendly</span></div>
+          <div class="why-card"><span class="tile-icon">☺</span><span>Child Friendly</span></div>
+          <div class="why-card"><span class="tile-icon">✧</span><span>Sterilized Instruments</span></div>
+          <div class="why-card"><span class="tile-icon">♡</span><span>Personalized Care</span></div>
+          <div class="why-card"><span class="tile-icon">🚪</span><span>Convenient Home Visits</span></div>
+          <div class="why-card"><span class="tile-icon">⌛</span><span>Saves Travel Time</span></div>
         </div>
       </div>
     </section>
@@ -2370,6 +2520,14 @@
             improve oral health, and regain confidence. Every home visit is guided by
             compassion, clear explanation, and calm, patient-centered care.
           </p>
+        </div>
+        <div class="trust-visual">
+          <img src="assets/home-visit-dentist-ai.jpg" alt="A professional dentist prepared for a welcoming home visit" loading="lazy">
+          <div>
+            <span class="eyebrow">Care that feels reassuring</span>
+            <h3>Clear guidance, gentle treatment, and time to be heard.</h3>
+            <p>We explain each next step so patients and families can feel calm and informed throughout the visit.</p>
+          </div>
         </div>
         <div class="promise-grid">
           <div class="promise-card">
@@ -2537,11 +2695,11 @@
           </p>
         </div>
         <div class="service-feature-grid">
-          <div class="service-feature-card">Schools</div>
-          <div class="service-feature-card">Apartments</div>
-          <div class="service-feature-card">Offices</div>
-          <div class="service-feature-card">Senior citizen groups</div>
-          <div class="service-feature-card">Community associations</div>
+          <div class="service-feature-card camp-card"><span class="tile-icon">🏫</span><span>Schools</span></div>
+          <div class="service-feature-card camp-card"><span class="tile-icon">🏢</span><span>Apartments</span></div>
+          <div class="service-feature-card camp-card"><span class="tile-icon">💼</span><span>Offices</span></div>
+          <div class="service-feature-card camp-card"><span class="tile-icon">🤝</span><span>Senior citizen groups</span></div>
+          <div class="service-feature-card camp-card"><span class="tile-icon">🌿</span><span>Community associations</span></div>
         </div>
         <div class="section-actions" style="text-align:center; margin-top:24px;">
           <a class="btn btn-whatsapp whatsapp-link" href="#" target="_blank" rel="noopener">Ask for group pricing</a>
@@ -2714,7 +2872,7 @@
           </details>
           <details>
             <summary>What should I arrange before the dentist arrives?</summary>
-            <p>A clean, well-lit space with comfortable access is usually helpful. Any specific requirements will be shared while confirming your appointment.</p>
+            <p>Please welcome the dentist to a clean, well-lit space, offer drinking water, and provide access to a washroom for hand hygiene. A stable chair for the dentist and a comfortable chair for the patient help us work safely. Basic cleaning plus consultation usually needs at least 30 minutes; the exact time depends on the patient's needs. If you have a recliner or adjustable chair, please tell our team before the visit so we can plan the setup.</p>
           </details>
           <details>
             <summary>Can I book for an elderly parent or family member?</summary>
@@ -2735,11 +2893,13 @@
           <h2>Join Sri Aura Dental Care Team</h2>
           <p>We are inviting qualified dentists in Bangalore and Chennai to join a collaborative, patient-centered practice.</p>
         </div>
-        <div class="benefit-cards" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-top: 40px;">
-          <div class="benefit-card" style="border: none; background: var(--white);">
-            <div class="benefit-icon">👨‍⚕️</div>
-            <div class="benefit-title">Dentist</div>
-            <div class="benefit-text">Join our expanding clinic network in Bangalore and Chennai. Work with modern equipment and a patient-centered team.</div>
+        <div class="career-card">
+          <img src="assets/dentist-careers-ai.jpg" alt="Female and male dentists in a modern dental clinic" loading="lazy">
+          <div>
+            <span class="eyebrow">Open role</span>
+            <h3>Dentist</h3>
+            <p>Join our expanding clinic network in Bangalore and Chennai. Work with modern equipment and a patient-centered team.</p>
+            <p>We welcome dentists who value clear communication, gentle care, and dependable clinical standards.</p>
           </div>
         </div>
         <div style="text-align: center; margin-top: 40px;">
@@ -2806,6 +2966,41 @@
               <figcaption>
                 <strong>Gap Treatment</strong>
                 <span>Before and after smile improvement</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="assets/case-cleaning-before-after.jpg" alt="Before and after professional teeth cleaning" loading="lazy">
+              <figcaption>
+                <strong>Professional Cleaning</strong>
+                <span>Cleaner, fresher-looking teeth</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="assets/case-restoration-pre-post.jpg" alt="Before and after tooth restoration" loading="lazy">
+              <figcaption>
+                <strong>Tooth Restoration</strong>
+                <span>Restoring form and function</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="assets/case-rct-radiograph-1.jpg" alt="Root canal treatment radiograph" loading="lazy">
+              <figcaption>
+                <strong>Root Canal Treatment</strong>
+                <span>Clinical treatment view</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="assets/case-rct-radiograph-2.jpg" alt="Root canal follow-up radiograph" loading="lazy">
+              <figcaption>
+                <strong>Successful RCT Follow-up</strong>
+                <span>Post-treatment review</span>
+              </figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <img src="assets/home-dental-treatments.jpg" alt="Professional home dental treatment" loading="lazy">
+              <figcaption>
+                <strong>Home Dental Care</strong>
+                <span>Comfortable care where you are</span>
               </figcaption>
             </figure>
           </div>
