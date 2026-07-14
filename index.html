@@ -1839,14 +1839,12 @@
     }
 
     .gallery-item {
-      aspect-ratio: 1;
       background: var(--white);
       border: 1px solid var(--line);
       border-radius: 16px;
       overflow: hidden;
       display: grid;
       grid-template-rows: 1fr auto;
-      font-size: 3rem;
       transition: transform 0.3s ease;
     }
 
@@ -1856,10 +1854,11 @@
 
     .gallery-item img {
       width: 100%;
-      height: 100%;
+      height: auto;
       min-height: 0;
       display: block;
-      object-fit: cover;
+      object-fit: contain;
+      background: #17110b;
     }
 
     .gallery-item figcaption {
@@ -2159,8 +2158,8 @@
 </head>
 <body>
   <div class="announcement">
-    Clinical &amp; Home Dental Care in Bangalore &amp; Chennai | Other locations on request
-    <a href="tel:+918838135459">Call +91 88381 35459</a>
+    Reach us for the best discount on home dental care.
+    <a class="whatsapp-link" href="#" target="_blank" rel="noopener">WhatsApp +91 88381 35459</a>
   </div>
 
   <header>
@@ -2206,6 +2205,7 @@
               <ul>
                 <li>Initial Dental Guidance</li>
                 <li>Treatment Recommendations</li>
+                <li>Detailed Oral Health Report</li>
                 <li>Consultation from Qualified Dentist</li>
               </ul>
               <div class="hero-card-actions">
@@ -2414,7 +2414,7 @@
             <span class="service-number">01</span>
             <div class="service-icon" aria-hidden="true">&#128269;</div>
             <h3>Dental Consultation</h3>
-            <p>A focused oral health review, discussion of concerns, and clear next-step guidance.</p>
+            <p>A focused oral health review with clear next-step guidance and a detailed oral health report.</p>
             <a class="whatsapp-link" href="#" target="_blank" rel="noopener">Ask about this service &#8594;</a>
           </article>
           <article class="service-card">
@@ -2733,23 +2733,13 @@
         <div class="section-head">
           <span class="eyebrow">Grow Your Career</span>
           <h2>Join Sri Aura Dental Care Team</h2>
-          <p>We're expanding our clinical operations in Bangalore and Chennai. If you're a qualified dental professional looking for a collaborative, patient-centered environment, we'd love to hear from you.</p>
+          <p>We are inviting qualified dentists in Bangalore and Chennai to join a collaborative, patient-centered practice.</p>
         </div>
         <div class="benefit-cards" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); margin-top: 40px;">
           <div class="benefit-card" style="border: none; background: var(--white);">
             <div class="benefit-icon">👨‍⚕️</div>
-            <div class="benefit-title">Dental Surgeons</div>
+            <div class="benefit-title">Dentist</div>
             <div class="benefit-text">Join our expanding clinic network in Bangalore and Chennai. Work with modern equipment and a patient-centered team.</div>
-          </div>
-          <div class="benefit-card" style="border: none; background: var(--white);">
-            <div class="benefit-icon">🦷</div>
-            <div class="benefit-title">Dental Therapists</div>
-            <div class="benefit-text">Support our clinical operations with expertise in preventive care, patient communication, and treatment coordination.</div>
-          </div>
-          <div class="benefit-card" style="border: none; background: var(--white);">
-            <div class="benefit-icon">💼</div>
-            <div class="benefit-title">Clinical Coordinators</div>
-            <div class="benefit-text">Help us deliver seamless patient experiences through appointment management and clinical support.</div>
           </div>
         </div>
         <div style="text-align: center; margin-top: 40px;">
@@ -2757,7 +2747,7 @@
           <a class="btn btn-whatsapp whatsapp-link" href="#" target="_blank" rel="noopener" style="display: inline-flex;">
             <span aria-hidden="true">💼</span> Send Your Profile on WhatsApp
           </a>
-          <p style="font-size: 0.9rem; color: var(--text); margin-top: 16px;">Share your CV, qualifications, and experience. We'll reach out to discuss opportunities.</p>
+          <p style="font-size: 0.9rem; color: var(--text); margin-top: 16px;">Share your CV, dental qualifications, and experience. We'll reach out to discuss the Dentist role.</p>
         </div>
       </div>
     </section>
@@ -2801,42 +2791,21 @@
           <div class="section-head">
             <span class="eyebrow">Patient transformations</span>
             <h2>Before & After Care Gallery</h2>
-            <p>Safe, patient-face-free dental progress imagery for informed care decisions.</p>
+            <p>Real case images shown in their complete original framing for informed care decisions.</p>
           </div>
           <div class="gallery-grid">
             <figure class="gallery-item">
-              <img src="assets/case-cleaning-before-after.jpg" alt="Before and after professional teeth cleaning" loading="lazy">
+              <img src="assets/Geetha_Front_gap_filling.jpg" alt="Before and after front tooth gap filling" loading="lazy">
               <figcaption>
-                <strong>Professional Cleaning</strong>
-                <span>Remove buildup & restore shine</span>
+                <strong>Front Tooth Gap Filling</strong>
+                <span>Before and after restorative treatment</span>
               </figcaption>
             </figure>
             <figure class="gallery-item">
-              <img src="assets/case-restoration-pre-post.jpg" alt="Tooth restoration before and after" loading="lazy">
+              <img src="assets/Gap_camp.jpg" alt="Before and after tooth gap treatment" loading="lazy">
               <figcaption>
-                <strong>Tooth Restoration</strong>
-                <span>Restore form & function</span>
-              </figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="assets/case-rct-radiograph-1.jpg" alt="Root canal treatment radiograph" loading="lazy">
-              <figcaption>
-                <strong>Root Canal Treatment</strong>
-                <span>Save the tooth, eliminate pain</span>
-              </figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="assets/case-rct-radiograph-2.jpg" alt="Root canal treatment follow-up radiograph" loading="lazy">
-              <figcaption>
-                <strong>Successful RCT Follow-up</strong>
-                <span>Healing confirmed in post-op x-ray</span>
-              </figcaption>
-            </figure>
-            <figure class="gallery-item">
-              <img src="assets/home-dental-treatments.jpg" alt="Home dental treatment procedure" loading="lazy">
-              <figcaption>
-                <strong>Home Dental Care</strong>
-                <span>Quality care from comfort of home</span>
+                <strong>Gap Treatment</strong>
+                <span>Before and after smile improvement</span>
               </figcaption>
             </figure>
           </div>
