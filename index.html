@@ -216,6 +216,7 @@
       color: var(--ink);
       font-size: 0.9rem;
       font-weight: 700;
+      white-space: nowrap;
     }
 
     .announcement a {
@@ -1908,6 +1909,13 @@
       font-size: 1.15rem;
     }
 
+    .offer-price-item del {
+      margin-right: 6px;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
     .career-card {
       display: grid;
       gap: 28px;
@@ -2321,8 +2329,9 @@
       </a>
       <div class="nav-links">
         <a href="#services">Services</a>
-        <a href="#process">How it works</a>
+        <a href="#process">How It Works</a>
         <a href="#doctor">Doctor</a>
+        <a href="#transformations">Patient Transformations</a>
         <a href="#careers">Careers</a>
         <a href="#faq">FAQs</a>
         <a class="btn btn-whatsapp whatsapp-link" href="#" target="_blank" rel="noopener">WhatsApp Us</a>
@@ -2353,7 +2362,6 @@
               <ul>
                 <li>Initial Dental Guidance</li>
                 <li>Treatment Recommendations</li>
-                <li>Detailed Oral Health Report</li>
                 <li>Consultation from Qualified Dentist</li>
               </ul>
               <div class="hero-card-actions">
@@ -2413,7 +2421,6 @@
             <ul class="offer-benefits">
               <li>Initial Dental Guidance</li>
               <li>Treatment Recommendations</li>
-              <li>Detailed Oral Health Report</li>
               <li>Consultation from Qualified Dentist</li>
             </ul>
           </div>
@@ -2423,9 +2430,9 @@
           </div>
         </div>
         <div class="offer-pricing" aria-label="Home dental care price details">
-          <div class="offer-price-item"><span>Home consultation + cleaning</span><strong>&#8377;1,299 / person</strong></div>
-          <div class="offer-price-item"><span>Minor tooth filling</span><strong>&#8377;1,299 / filling</strong></div>
-          <div class="offer-price-item"><span>Family or group appointments</span><strong>Reach us for the best discount</strong></div>
+          <div class="offer-price-item"><span>Home consultation + cleaning + Detailed Oral Health Report</span><strong><del>&#8377;2,000</del> &#8377;1,299 / person</strong></div>
+          <div class="offer-price-item"><span>Minor tooth filling + Detailed Oral Health Report</span><strong><del>&#8377;2,000</del> &#8377;1,299 / filling</strong></div>
+          <div class="offer-price-item"><span>Family or group appointments</span><strong>Reach us for the best discount.</strong></div>
         </div>
       </div>
     </section>
@@ -2716,14 +2723,14 @@
         </div>
         <div class="pricing-grid">
           <article class="pricing-card">
-            <strong>Home consultation + Cleaning</strong>
+            <strong>Home consultation + cleaning + Detailed Oral Health Report</strong>
             <p class="price"><del>&#8377;2,000</del> <strong>&#8377;1,299 / person</strong></p>
-            <p>Home consultation with dental cleaning and scaling when clinically suitable.</p>
+            <p>Home consultation with dental cleaning and scaling when clinically suitable, plus a detailed oral health report.</p>
           </article>
           <article class="pricing-card">
-            <strong>Minor tooth filling</strong>
+            <strong>Minor tooth filling + Detailed Oral Health Report</strong>
             <p class="price"><del>&#8377;2,000</del> <strong>&#8377;1,299 / filling</strong></p>
-            <p>Tooth-coloured composite filling - good quality support after examination and suitability check.</p>
+            <p>Tooth-coloured composite filling after examination and suitability check, plus a detailed oral health report.</p>
           </article>
           <article class="pricing-card">
             <strong>Family cleaning + Consultation</strong>
@@ -2946,7 +2953,7 @@
         </div>
       </section>
 
-      <section class="gallery-section">
+      <section class="gallery-section" id="transformations">
         <div class="container">
           <div class="section-head">
             <span class="eyebrow">Patient transformations</span>
